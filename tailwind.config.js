@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./**/**.{html,js}", "!./node_modules/**/*"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inriaserif: ['"Inria Serif"', "serif"],
+        inriasans: ['"Inria Sans"', "serif"],
+      },
+    },
   },
   plugins: [],
 };
