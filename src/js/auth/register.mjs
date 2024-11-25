@@ -1,5 +1,6 @@
-import { API_AUTH_REGISTER } from "../../API/constants.mjs";
+import { API_AUTH_REGISTER } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
+import { login } from "./login.mjs";
 
 export async function registerUser({ name, email, password }) {
   const body = JSON.stringify({
@@ -20,17 +21,15 @@ export async function registerUser({ name, email, password }) {
 
     const result = await response.json();
 
-    console.log(result);
-
     if (!response.ok) {
       userError.style.display = "block";
       userError.innerHTML = `${result.errors[0].message}`;
       window.alert("oh no balls");
     } else if (response.ok) {
       userSuccess.style.display = "block";
-      userSuccess.innerHTML = `User was created successfully, we'll now redirect you to the login page`;
+      userSuccess.innerHTML = `User was created successfully, logging in...`;
       setTimeout(() => {
-        window.location.href = "../login/";
+        login({ email, password });
       }, 6000);
     }
 

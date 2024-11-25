@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="onLogin.mjs"></script>
-    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
     <title>Bidly - Login user</title>
   </head>
 
   <body class="flex flex-col min-h-screen justify-between font-inriaserif">
     <header class="bg-[#0054B4] flex justify-between p-6">
-      <img src="../../Media/site-logo.svg" alt="Bidly site logo" />
+      <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
       <nav>
         <img
-          src="../../Media/hamburger-icon.svg"
+          src="/src/Media/hamburger-icon.svg"
           alt="Toggle sidebar menu button"
         />
       </nav>
@@ -22,7 +21,7 @@
       <div class="flex flex-col items-center gap-5">
         <div class="flex flex-col gap-3">
           <h1 class="text-center">Login</h1>
-          <img src="/Media/line-divider.svg" alt="line divider icon" />
+          <img src="/src/Media/line-divider.svg" alt="line divider icon" />
         </div>
         <p class="text-lg text-center">
           Login to bid, create listings and more
@@ -61,7 +60,9 @@
         </button>
         <p class="text-center">
           or register
-          <a href="/Auth/register/" class="underline italic cursor-pointer"
+          <a
+            href="/pages/auth/register/index.html"
+            class="underline italic cursor-pointer"
             >here
           </a>
         </p>

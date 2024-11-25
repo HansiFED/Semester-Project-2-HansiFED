@@ -1,4 +1,4 @@
-import { accessToken } from "../API/constants.mjs";
+import { accessToken } from "../../API/constants.mjs";
 
 export function authCheck() {
   if (!accessToken) {

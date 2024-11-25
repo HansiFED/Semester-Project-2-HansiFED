@@ -1,4 +1,4 @@
-import { API_AUTH_LOGIN } from "../../API/constants.mjs";
+import { API_AUTH_LOGIN } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function login({ email, password }) {

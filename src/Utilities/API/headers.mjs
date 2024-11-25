@@ -1,4 +1,4 @@
-import { accessToken, API_KEY } from "../../API/constants.mjs";
+import { accessToken, API_KEY } from "../../../API/constants.mjs";
 
 export function headers() {
   const headers = new Headers({
