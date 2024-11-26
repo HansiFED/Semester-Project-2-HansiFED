@@ -17,5 +17,89 @@
         />
       </nav>
     </header>
+    <main class="flex flex-col gap-10 w-[80%] max-w-[1000px] self-center">
+      <section id="listingTopWrapper" class="flex flex-col">
+        <section id="listingImageCarousel" class="self-center w-full">
+          <img
+            src="https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png"
+            alt=""
+            class="object-cover w-full"
+          />
+        </section>
+        <h1 class="text-center">Create Listing</h1>
+        <img
+          class="w-full max-w-[260px] self-center mt-4"
+          src="/src/Media/line-divider.svg"
+          alt="Line divider for content"
+        />
+      </section>
+      <form id="listingCreateForm" class="flex flex-col gap-4" action="">
+        <section class="flex flex-col gap-2" id="listingTitle">
+          <label for="titleInput"> Listing Title </label>
+          <input
+            class="border border-lightModeDarkGray rounded-lg py-1 px-3"
+            id="titleInput"
+            type="text"
+            name="titleInput"
+          />
+        </section>
+        <section class="flex flex-col gap-2" id="urlInputs">
+          <section class="flex flex-col gap-2">
+            <label for="urlInput">Image(s) URL</label>
+            <input
+              class="border border-lightModeDarkGray rounded-lg py-1 px-3"
+              id="urlInput"
+              type="url"
+              name="urlInput"
+            />
+          </section>
+          <img
+            class="w-8"
+            src="/src/Media/plus-sign-lightmode.svg"
+            alt="Add another input field"
+          />
+        </section>
+        <section class="flex flex-col gap-2">
+          <label for="listingDesc"> Listing Description </label>
+          <textarea
+            class="resize-none border border-lightModeDarkGray rounded-lg py-1 px-3"
+            type="text"
+            name="listingDesc"
+            id="listingDesc"
+            maxlength="10000"
+            rows="12"
+          ></textarea>
+        </section>
+        <section class="flex flex-col gap-2">
+          <label for="tags"> Tags </label>
+          <input
+            class="border border-lightModeDarkGray rounded-lg py-1 px-3"
+            id="tags"
+            type="text"
+            placeholder="Car, Chair, Headset, ect..."
+            name="tags"
+          />
+        </section>
+        <section class="flex flex-col gap-2">
+          <label for="end-date"> Listing End Date </label>
+          <input
+            type="date"
+            class="border border-lightModeDarkGray rounded-lg py-1 px-3"
+            name="end-date"
+            id="end-date"
+          />
+        </section>
+        <button
+          id="createListingButton"
+          class="bg-primaryYellow mt-10 py-3 px-16 rounded-lg text-lg hover:scale-[1.02] transition duration-200"
+          type="submit"
+        >
+          Create Listing
+        </button>
+      </form>
+    </main>
+    <footer class="bg-primaryBlue flex justify-center py-6 mt-16">
+      <p class="text-white text-xs">©2024 HansiFED</p>
+    </footer>
   </body>
 </html>
