@@ -17,6 +17,7 @@ export default {
         lightModeBlackText: "#000000",
         lightModeWhite: "#FFFFFF",
         lightModeProfileButtons: "#333333",
+        lightModeBannerPlaceHolder: "#757575",
 
         darkModeBackground: "#171717",
         darkModeHeader: "#262626",

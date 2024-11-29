@@ -20,7 +20,7 @@ export async function onCreate(event) {
   );
   const media = Array.from(urlInputs).map((input) => ({
     url: input.value,
-    alt: `Alt text for ${input.value}`,
+    alt: `Alt text for listing image`,
   }));
 
   const listingBody = {

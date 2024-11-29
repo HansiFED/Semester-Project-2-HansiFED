@@ -8,6 +8,10 @@ h1 {
   @apply font-inriaserif text-3xl;
 }
 
+button {
+  @apply font-inriaserif text-xl;
+}
+
 .loader {
   --height-of-loader: 4px;
   --loader-color: #0071e2;
