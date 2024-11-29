@@ -25,18 +25,18 @@
       </section>
       <section id="profileWrapper" class="flex flex-col w-full px-5 mb-10">
         <div id="imageNameAndCoinsContainer" class="flex">
-          <div id="pfpContainer">
+          <div id="pfpContainer" class="h-14">
             <img
-              class="rounded-full w-32 absolute top-[275px]"
+              class="rounded-full w-32 relative top-[-100px]"
               src="/src/Media/stockPfp.jpg"
               alt="profile picture template"
             />
           </div>
           <div
             id="nameAndCoinsWrapper"
-            class="flex items-center absolute left-40 top-[350px] gap-[50px]"
+            class="flex items-center flex-grow justify-between relative top-[-40px] gap-[50px]"
           >
-            <h3 class="text-xl">username</h3>
+            <h3 class="text-xl ml-5">username</h3>
             <div class="flex gap-2" id="coinAmountContainer">
               <img
                 src="/src/Media/coinsIconLightMode.svg"
@@ -46,7 +46,7 @@
             </div>
           </div>
         </div>
-        <div id="userBioContainer" class="mt-10 max-w-[450px]">
+        <div id="userBioContainer" class="max-w-[450px]">
           <p>
             "There is no one who loves pain itself, who seeks after it and wants
             to have it, simply because it is pain..."
@@ -85,7 +85,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="object-cover rounded-xl mt-4 w-full"
                 alt="listing image"
               />
               <div class="listingInfo">
