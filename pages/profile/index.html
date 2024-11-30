@@ -18,16 +18,22 @@
       </nav>
     </header>
     <main
-      class="flex flex-col flex-grow gap-10 self-center items-center w-screen"
+      class="flex flex-col flex-grow gap-10 self-center items-center w-screen animate-pulse"
     >
-      <section>
-        <div class="bg-[#757575] w-screen h-64" id="profileBanner" alt=""></div>
+      <section id="profileBannerWrapper">
+        <img
+          src="/src/Media/placeholderImg.jpeg"
+          id="profileBanner"
+          class="bg-[#757575] w-screen h-64 object-cover"
+          alt=""
+        />
       </section>
       <section id="profileWrapper" class="flex flex-col w-full px-5 mb-10">
         <div id="imageNameAndCoinsContainer" class="flex">
           <div id="pfpContainer" class="h-14">
             <img
-              class="rounded-full w-32 relative top-[-100px]"
+              id="pfp"
+              class="rounded-full w-32 h-32 object-cover relative top-[-100px]"
               src="/src/Media/stockPfp.jpg"
               alt="profile picture template"
             />
@@ -36,18 +42,18 @@
             id="nameAndCoinsWrapper"
             class="flex items-center flex-grow justify-between relative top-[-40px] gap-[50px]"
           >
-            <h3 class="text-xl ml-5">username</h3>
+            <h3 id="userName" class="text-xl ml-5">username</h3>
             <div class="flex gap-2" id="coinAmountContainer">
               <img
                 src="/src/Media/coinsIconLightMode.svg"
                 alt="amount of coins"
               />
-              <p>1000</p>
+              <p id="userCredits">1000</p>
             </div>
           </div>
         </div>
         <div id="userBioContainer" class="max-w-[450px]">
-          <p>
+          <p id="userBio">
             "There is no one who loves pain itself, who seeks after it and wants
             to have it, simply because it is pain..."
           </p>
@@ -55,14 +61,24 @@
         </div>
         <section id="pfActionButtons" class="flex flex-col gap-7">
           <button
+            onclick="location.href='#activeListings'"
+            id="activeListingsButton"
             class="bg-lightModeProfileButtons text-white mt-7 py-3 rounded-xl"
           >
             Active Listings
           </button>
-          <button class="bg-lightModeProfileButtons text-white py-3 rounded-xl">
+          <button
+            onclick="location.href='#activeListings'"
+            id="activeBidsButton"
+            class="bg-lightModeProfileButtons text-white py-3 rounded-xl"
+          >
             Active Bids
           </button>
-          <button class="bg-lightModeProfileButtons text-white py-3 rounded-xl">
+          <button
+            onclick="location.href='#wonBids'"
+            id="wonBidsButton"
+            class="bg-lightModeProfileButtons text-white py-3 rounded-xl"
+          >
             Won Bids
           </button>
         </section>
@@ -75,7 +91,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="listingPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -85,7 +101,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4 w-full"
+                class="activeListingImage object-cover rounded-xl mt-4 w-full"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -107,7 +123,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="listingPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -117,7 +133,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="activeListingImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -139,7 +155,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="listingPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -149,7 +165,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="activeListingImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -176,7 +192,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="activeBidsPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -186,7 +202,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="activeBidsImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -208,7 +224,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="activeBidsPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -218,7 +234,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="activeBidsImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -245,7 +261,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="wonBidsPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -255,7 +271,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="wonBidsImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -277,7 +293,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="wonBidsPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -287,7 +303,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="wonBidsImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
@@ -309,7 +325,7 @@
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img
-                    class="w-6 rounded-full"
+                    class="wonBidsPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
                     alt="user profile photo"
                   />
@@ -319,7 +335,7 @@
               </div>
               <img
                 src="/src/Media/placeholderImg.jpeg"
-                class="object-cover rounded-xl mt-4"
+                class="wonBidsImage object-cover rounded-xl mt-4"
                 alt="listing image"
               />
               <div class="listingInfo">
