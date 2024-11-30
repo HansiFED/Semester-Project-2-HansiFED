@@ -14,7 +14,7 @@ export function buildActiveListings(activeListings, pfp, userName) {
               <div class="listingContainerTop flex flex-grow justify-between">
                 <div class="nameAndPicture flex items-center gap-2">
                   <img class="listingPFP w-6 h-6 object-cover rounded-full" src="${pfp}" alt="user profile photo" />
-                  <p>HansiFed</p>
+                  <p>${userName}</p>
                 </div>
                 <p class="date">${formatDate(listing.created)}</p>
               </div>
@@ -23,7 +23,7 @@ export function buildActiveListings(activeListings, pfp, userName) {
               <div class="listingInfo">
               <div class="flex items-center justify-between mt-5">  
               <h4 class="listingTitle text-xl">${listing.title}</h4>
-              ${isOwner ? `<img src="/src/media/moreOptionsIcon.svg" alt="More Info" class="ml-2 w-8 h-8 cursor-pointer" />` : ""}
+              ${isOwner ? `<img src="/src/media/moreOptionsIcon.svg" alt="More Info" class="ml-2 w-3 h-3 cursor-pointer" />` : ""}
               </div>
                 <p class="listingDesc mt-5">
                   "${listing.description}"
