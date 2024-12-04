@@ -4,7 +4,7 @@ import { headers } from "../../Utilities/API/headers.mjs";
 export async function fetchListings(username) {
   try {
     const response = await fetch(
-      `${API_AUCTION_PROFILES}/${username}/listings`,
+      `${API_AUCTION_PROFILES}/${username}/listings?_seller=true&_bids=true`,
       {
         method: "GET",
         headers: headers(),

@@ -11,10 +11,127 @@
     <header class="bg-primaryBlue flex justify-between p-6 items-center">
       <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
       <nav>
-        <img
-          src="/src/Media/hamburger-icon.svg"
-          alt="Toggle sidebar menu button"
-        />
+        <button id="menuToggle">
+          <img
+            id="hamburger-icon"
+            src="/src/Media/hamburger-icon.svg"
+            alt="Toggle sidebar menu button"
+          />
+        </button>
+        <div
+          id="menu"
+          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+        >
+          <button id="menuClose" class="absolute top-4 right-4 p-2">
+            <img
+              src="/src/Media/headerIcons/hamburger-icon-toggled.svg"
+              alt="Close"
+            />
+          </button>
+          <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
+            <li class="hidden" id="creditTag">
+              <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                <div
+                  id="creditsHeaderAmountContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/creditsHeaderIcon.svg"
+                    alt="Credits Amount"
+                  />
+                  <p id="creditsHeaderAmount"></p>
+                </div>
+              </a>
+            </li>
+            <li id="homeTag">
+              <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                <div id="homeContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/homeIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Home</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="profileTag">
+              <a
+                href=""
+                id="myProfileContainer"
+                class="py-2 hover:bg-primaryLight rounded-md"
+              >
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/myProfileIcon-toggled.svg"
+                    alt="Home Page link"
+                  />
+                  <p class="text-primaryYellow underline">My Profile</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="createTag">
+              <a
+                href="/pages/create/"
+                class="py-2 hover:bg-primaryLight rounded-md"
+              >
+                <div
+                  id="myCreateListingContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/createListingIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Create a Listing</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                id="darkModeTag"
+                href="/"
+                class="block py-2 hover:bg-primaryLight rounded-md"
+              >
+                <div id="darkModeContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/darkModeIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Dark Mode</p>
+                </div>
+              </a>
+            </li>
+            <li id="logoutTag" class="hidden">
+              <a
+                href="/"
+                onclick=""
+                class="py-2 hover:bg-primaryLight rounded-md"
+              >
+                <div id="logoutContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Logout</p>
+                </div>
+              </a>
+            </li>
+            <li class="" id="loginTag">
+              <a
+                href="/pages/auth/login/"
+                class="py-2 hover:bg-primaryLight rounded-md"
+              >
+                <div id="logInContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Login</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
     <main class="flex flex-col gap-10 max-w-[80%] self-center items-center">

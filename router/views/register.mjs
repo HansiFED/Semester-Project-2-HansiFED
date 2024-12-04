@@ -1,6 +1,7 @@
 import { onRegister } from "../ui/auth/onRegister.mjs";
+import { initHamburgerMenu } from "../ui/header/slideInHeader.mjs";
 
-//Attaches the on-login function to the form submission event
+initHamburgerMenu();
 
 const form = document.forms.registerForm;
 
