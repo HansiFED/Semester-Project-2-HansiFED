@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="/app.js"></script>
+  </head>
+
+  <body class="flex flex-col min-h-screen font-inriaserif">
+    <header class="bg-primaryBlue flex justify-between p-6 items-center">
+      <a href="/">
+        <img
+          class="cursor-pointer"
+          src="/src/Media/site-logo.svg"
+          alt="Bidly site logo"
+        />
+      </a>
+      <nav>
+        <img
+          src="/src/Media/hamburger-icon.svg"
+          alt="Toggle sidebar menu button"
+        />
+      </nav>
+    </header>
+    <main class="w-[80%] self-center flex-grow animate-pulse">
+      <section id="listingInfoWrapper">
+        <div>
+          <img
+            id="listingImage"
+            class="w-full h-[385px] mt-10 object-cover"
+            src="/src/Media/placeholderImg.jpeg"
+            alt="placeholder image"
+          />
+        </div>
+        <div class="flex flex-col">
+          <div class="flex justify-between items-center mb-4 mt-4">
+            <h1 id="listingTitle">Listing Title</h1>
+            <div class="flex items-center gap-2">
+              <img src="/src/Media/coinsIconLightMode.svg" alt="" />
+              <p id="currentBid" class="text-lg">0</p>
+            </div>
+          </div>
+          <div class="bg-black h-[1px] w-full"></div>
+        </div>
+        <div class="mt-5">
+          <p id="listingDesc">
+            "There is no one who loves pain itself, who seeks after it and wants
+            to have it, simply because it is pain... There is no one who loves
+            pain itself, who seeks after it and wants to have it, simply because
+            it is pain..."
+          </p>
+        </div>
+        <div class="flex justify-between mt-5">
+          <div id="userInfo" class="flex text-xs items-center">
+            <img
+              id="userPfp"
+              class="w-6 h-6 object-cover rounded-full"
+              src="/src/Media/stockPfp.jpg"
+              alt=""
+            />
+            <p class="ml-3" id="userName">username</p>
+          </div>
+          <div class="flex text-xs items-center gap-3">
+            <p>Auction Ending:</p>
+            <p id="endsAt">9d 23h 10m 42s</p>
+          </div>
+        </div>
+      </section>
+      <section id="placeBidWrapper" class="mt-12">
+        <div id="placeBidContainer" class="flex flex-col">
+          <label class="text-lg" for="bidAmount"> Place a bid: </label>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-3">
+              <form class="flex flex-col" action="">
+                <input
+                  class="border border-lightModeDarkGray rounded-lg w-32"
+                  type="number"
+                  name="bidAmount"
+                />
+              </form>
+              <img
+                src="/src/Media/coinsIconLightMode.svg"
+                alt="bid amount icon"
+              />
+            </div>
+            <button
+              class="bg-primaryBlue text-white px-7 py-1 rounded-lg text-base"
+            >
+              Place Bid
+            </button>
+          </div>
+        </div>
+        <div id="loginToPlaceBidContainer" class="flex flex-col hidden">
+          <p class="text-lg">Want to place a bid?</p>
+          <div class="flex items-center gap-4 mt-3">
+            <a
+              href="/pages/auth/login/"
+              class="bg-primaryYellow text-base px-7 rounded-lg"
+            >
+              Login
+            </a>
+            <p>
+              or register
+              <a class="underline" href="/pages/auth/register/"> here </a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="currentBiddersWrapper" class="mt-12">
+        <div class="flex gap-4">
+          <h2 class="text-lg">Current Bidders</h2>
+          <img
+            class="w-7"
+            src="/src/Media/auctionhammer.svg"
+            alt="auction hammer icon"
+          />
+        </div>
+      </section>
+    </main>
+    <footer class="bg-primaryBlue flex justify-center py-6 mt-16">
+      <p class="text-white text-xs">©2024 HansiFED</p>
+    </footer>
+  </body>
+</html>
