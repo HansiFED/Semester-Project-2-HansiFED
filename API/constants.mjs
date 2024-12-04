@@ -18,6 +18,6 @@ export const API_AUCTION_PROFILES = `${API_BASE}/auction/profiles`;
 
 export const myUserData = JSON.parse(localStorage.getItem("myUserData"));
 
-export const myUserName = myUserData.data.name;
+export const myUserName = myUserData?.data?.name || "";
 
-export const fetchMyUser = `${API_BASE}/profiles/${myUserName}`;
+export const API_AUCTION_EDIT_PROFILE = `${API_AUCTION_PROFILES}/${myUserName}`;

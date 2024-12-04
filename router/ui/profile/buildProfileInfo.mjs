@@ -1,3 +1,5 @@
+import { profilePageChecker } from "../../../src/Utilities/profilePageChecker.mjs";
+
 export function buildProfileInfo(data) {
   const userName = data.name;
   const avatarURL = data.avatar.url;
@@ -12,6 +14,10 @@ export function buildProfileInfo(data) {
   const userPfpDomElement = document.getElementById("pfp");
   const userCreditsDomElement = document.getElementById("userCredits");
   const userBioDomElement = document.getElementById("userBio");
+
+  if (profilePageChecker) {
+    document.getElementById("editUserIcon").classList.remove("hidden");
+  }
 
   userBannerDomElement.src = userBanner;
   userBannerDomElement.alt = userBannerALT;

@@ -35,6 +35,16 @@ export function buildActiveListings(activeListings, pfp, userName) {
                 </div>
               </div>
             </div>`;
-    activeListingsContainerDomElement.innerHTML += singleListing;
+
+    const listingElement = document.createElement("div");
+    listingElement.innerHTML = singleListing;
+
+    const listingDiv = listingElement.firstChild;
+
+    listingDiv.addEventListener("click", () => {
+      window.location.href = `/pages/listing/?id=${listing.id}`;
+    });
+
+    activeListingsContainerDomElement.appendChild(listingDiv);
   });
 }

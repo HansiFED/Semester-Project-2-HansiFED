@@ -1,4 +1,11 @@
-import { myUserName } from "../../API/constants.mjs";
 import { onBuild } from "../ui/profile/onBuild.mjs";
 
-onBuild(myUserName);
+const queryString = window.location.search;
+
+const params = new URLSearchParams(queryString);
+
+const userName = params.get("username");
+
+console.log(userName);
+
+onBuild(userName);

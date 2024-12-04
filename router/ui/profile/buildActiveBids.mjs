@@ -28,6 +28,16 @@ export function buildActiveBids(activeBids) {
                 </div>
               </div>
             </div>`;
-    activeBidsContainerDomElement.innerHTML += singleListing;
+
+    const listingElement = document.createElement("div");
+    listingElement.innerHTML = singleListing;
+
+    const listingDiv = listingElement.firstChild;
+
+    listingDiv.addEventListener("click", () => {
+      window.location.href = `/pages/listing/?id=${listing.id}`;
+    });
+
+    activeBidsContainerDomElement.appendChild(listingDiv);
   });
 }

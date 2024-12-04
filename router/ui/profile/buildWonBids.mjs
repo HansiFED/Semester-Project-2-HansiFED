@@ -3,7 +3,7 @@ import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 export function buildWonBids(wonBids) {
   const wonBidsContainerDomElement = document.getElementById("wonBids");
 
-  wonBidsContainerDomElement.innerHTML = ""; // Clear existing content
+  wonBidsContainerDomElement.innerHTML = "";
 
   wonBids.forEach((listing) => {
     const singleListing = `<div id="${listing.id}" class="listingContainer bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl">
@@ -28,6 +28,12 @@ export function buildWonBids(wonBids) {
                 </div>
               </div>
             </div>`;
-    wonBidsContainerDomElement.innerHTML += singleListing;
+
+    const listingElement = document.createElement("div");
+    listingElement.innerHTML = singleListing;
+
+    const listingDiv = listingElement.firstChild;
+
+    wonBidsContainerDomElement.appendChild(listingDiv);
   });
 }

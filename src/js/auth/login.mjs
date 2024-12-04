@@ -24,12 +24,11 @@ export async function login({ email, password }) {
     }
 
     if (response.ok) {
+      localStorage.setItem("accessToken", data.data.accessToken);
+      localStorage.setItem("userName", data.data.name);
+      localStorage.setItem("myUserData", `${JSON.stringify(data)}`);
       window.location.href = "/";
     }
-
-    localStorage.setItem("accessToken", data.data.accessToken);
-    localStorage.setItem("userName", data.data.name);
-    localStorage.setItem("myUserData", `${JSON.stringify(data)}`);
   } catch (error) {
     alert(error);
   }
