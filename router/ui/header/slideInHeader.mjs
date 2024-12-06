@@ -42,6 +42,7 @@ export function initHamburgerMenu() {
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
       menu.classList.add("translate-x-full");
+      document.getElementById("hamburger-icon").classList.remove("hidden");
     }
   });
 }
