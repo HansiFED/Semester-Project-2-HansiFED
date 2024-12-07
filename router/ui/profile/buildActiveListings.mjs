@@ -22,10 +22,10 @@ export function buildActiveListings(activeListings, pfp, userName) {
                 alt="listing image" />
               <div class="listingInfo">
               <div class="flex items-center justify-between mt-5">  
-              <h4 class="listingTitle text-xl">${listing.title}</h4>
+              <h4 class="listingTitle overflow-hidden text-xl">${listing.title}</h4>
               ${isOwner ? `<img src="/src/media/moreOptionsIcon.svg" alt="More Info" class="ml-2 w-3 h-3 cursor-pointer" />` : ""}
               </div>
-                <p class="listingDesc mt-5">
+                <p class="listingDesc mt-5 overflow-hidden">
                   "${listing.description}"
                 </p>
                 <div class="bg-lightModeBlackText w-full h-[2px] mt-10"></div>

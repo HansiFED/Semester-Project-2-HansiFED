@@ -15,7 +15,7 @@ export function buildProfileInfo(data) {
   const userCreditsDomElement = document.getElementById("userCredits");
   const userBioDomElement = document.getElementById("userBio");
 
-  if (profilePageChecker) {
+  if (profilePageChecker()) {
     document.getElementById("editUserIcon").classList.remove("hidden");
   }
 

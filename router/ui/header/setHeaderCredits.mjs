@@ -18,8 +18,6 @@ export async function setHeaderCredits() {
       headerCreditsAmount.innerHTML = `Credits - ${result.data.credits}`;
     }
 
-    console.log(result);
-
     return result;
   } catch (err) {
     throw err;

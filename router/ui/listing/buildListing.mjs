@@ -1,6 +1,6 @@
 import { accessToken, myUserName } from "../../../API/constants.mjs";
 import { fetchListing } from "../../../src/js/listing/fetchListing.mjs";
-import { listingRemainingIsoCalculator } from "../../../src/Utilities/fromIsoListingDate.mjs";
+import { listingRemainingIsoCalculator } from "../../../src/Utilities/listingRemainingIsoCalculator.mjs";
 import { timeSinceBid } from "../../../src/Utilities/timeSinceBid.mjs";
 
 export async function buildListing() {
@@ -89,7 +89,10 @@ export async function buildListing() {
       timeSinceBidPElement,
     );
     bidderContainer.append(biddersChildContainer);
-    biddersWrapperDomElement.append(bidderContainer);
+    const currentBiddersHeader = document.querySelector(
+      "#currentBiddersWrapper > div",
+    );
+    currentBiddersHeader.insertAdjacentElement("afterend", bidderContainer);
   });
 
   main.classList.remove("animate-pulse");

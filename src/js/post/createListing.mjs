@@ -1,4 +1,4 @@
-import { API_CREATE_LISTING } from "../../../API/constants.mjs";
+import { API_LISTINGS_BASE } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function createListing(body) {
@@ -9,7 +9,7 @@ export async function createListing(body) {
   const createListingButton = document.getElementById("createListingButton");
 
   try {
-    const response = await fetch(API_CREATE_LISTING, {
+    const response = await fetch(API_LISTINGS_BASE, {
       method: "POST",
       headers: headers(),
       body: body,

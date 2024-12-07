@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="en">
+  <!-- <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><img id="backToTop"
+          class="absolute right-2 w-10 -bottom-0 cursor-pointer" src="src/Media/backToTopIcon.svg"
+          alt="go back to top"></button> -->
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,131 +12,148 @@
   </head>
 
   <body class="flex flex-col min-h-screen font-inriaserif">
-    <header class="bg-primaryBlue flex justify-between p-6 items-center">
-      <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
-      <nav>
-        <button id="menuToggle">
-          <img
-            id="hamburger-icon"
-            src="/src/Media/hamburger-icon.svg"
-            alt="Toggle sidebar menu button"
-          />
-        </button>
-        <div
-          id="menu"
-          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
-        >
-          <button id="menuClose" class="absolute top-4 right-4 p-2">
+    <header
+      id="header"
+      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between p-6 items-center"
+    >
+      <section class="flex w-full justify-between items-center">
+        <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
+        <nav>
+          <button id="menuToggle">
             <img
-              src="/src/Media/headerIcons/hamburger-icon-toggled.svg"
-              alt="Close"
+              id="hamburger-icon"
+              src="/src/Media/hamburger-icon.svg"
+              alt="Toggle sidebar menu button"
             />
           </button>
-          <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
-            <li class="hidden" id="creditTag">
-              <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
-                <div
-                  id="creditsHeaderAmountContainer"
-                  class="flex items-center gap-3"
+          <div
+            id="menu"
+            class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+          >
+            <button id="menuClose" class="absolute top-4 right-4 p-2">
+              <img
+                src="/src/Media/headerIcons/hamburger-icon-toggled.svg"
+                alt="Close"
+              />
+            </button>
+            <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
+              <li class="hidden" id="creditTag">
+                <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                  <div
+                    id="creditsHeaderAmountContainer"
+                    class="flex items-center gap-3"
+                  >
+                    <img
+                      src="/src/Media/headerIcons/creditsHeaderIcon.svg"
+                      alt="Credits Amount"
+                    />
+                    <p id="creditsHeaderAmount"></p>
+                  </div>
+                </a>
+              </li>
+              <li id="homeTag">
+                <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                  <div id="homeContainer" class="flex items-center gap-3">
+                    <img
+                      src="/src/Media/headerIcons/homeIcon-toggled.svg"
+                      alt="Home Page link"
+                    />
+                    <p class="text-primaryYellow underline">Home</p>
+                  </div>
+                </a>
+              </li>
+              <li class="hidden" id="profileTag">
+                <a
+                  href=""
+                  id="myProfileContainer"
+                  class="py-2 hover:bg-primaryLight rounded-md"
                 >
-                  <img
-                    src="/src/Media/headerIcons/creditsHeaderIcon.svg"
-                    alt="Credits Amount"
-                  />
-                  <p id="creditsHeaderAmount"></p>
-                </div>
-              </a>
-            </li>
-            <li id="homeTag">
-              <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
-                <div id="homeContainer" class="flex items-center gap-3">
-                  <img
-                    src="/src/Media/headerIcons/homeIcon-toggled.svg"
-                    alt="Home Page link"
-                  />
-                  <p class="text-primaryYellow underline">Home</p>
-                </div>
-              </a>
-            </li>
-            <li class="hidden" id="profileTag">
-              <a
-                href=""
-                id="myProfileContainer"
-                class="py-2 hover:bg-primaryLight rounded-md"
-              >
-                <div class="flex items-center gap-3">
-                  <img
-                    src="/src/Media/headerIcons/myProfileIcon.svg"
-                    alt="Home Page link"
-                  />
-                  <p>My Profile</p>
-                </div>
-              </a>
-            </li>
-            <li class="hidden" id="createTag">
-              <a
-                href="/pages/create/"
-                class="py-2 hover:bg-primaryLight rounded-md"
-              >
-                <div
-                  id="myCreateListingContainer"
-                  class="flex items-center gap-3"
+                  <div class="flex items-center gap-3">
+                    <img
+                      src="/src/Media/headerIcons/myProfileIcon.svg"
+                      alt="Home Page link"
+                    />
+                    <p>My Profile</p>
+                  </div>
+                </a>
+              </li>
+              <li class="hidden" id="createTag">
+                <a
+                  href="/pages/create/"
+                  class="py-2 hover:bg-primaryLight rounded-md"
                 >
-                  <img
-                    src="/src/Media/headerIcons/createListingIcon.svg"
-                    alt="Home Page link"
-                  />
-                  <p>Create a Listing</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                id="darkModeTag"
-                href="/"
-                class="block py-2 hover:bg-primaryLight rounded-md"
-              >
-                <div id="darkModeContainer" class="flex items-center gap-3">
-                  <img
-                    src="/src/Media/headerIcons/darkModeIcon.svg"
-                    alt="Home Page link"
-                  />
-                  <p>Dark Mode</p>
-                </div>
-              </a>
-            </li>
-            <li id="logoutTag" class="hidden">
-              <a
-                href="/"
-                onclick=""
-                class="py-2 hover:bg-primaryLight rounded-md"
-              >
-                <div id="logoutContainer" class="flex items-center gap-3">
-                  <img
-                    src="/src/Media/headerIcons/logoutIcon.svg"
-                    alt="Home Page link"
-                  />
-                  <p>Logout</p>
-                </div>
-              </a>
-            </li>
-            <li class="" id="loginTag">
-              <a
-                href="/pages/auth/login/"
-                class="py-2 hover:bg-primaryLight rounded-md"
-              >
-                <div id="logInContainer" class="flex items-center gap-3">
-                  <img
-                    src="/src/Media/headerIcons/logoutIcon.svg"
-                    alt="Home Page link"
-                  />
-                  <p>Login</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+                  <div
+                    id="myCreateListingContainer"
+                    class="flex items-center gap-3"
+                  >
+                    <img
+                      src="/src/Media/headerIcons/createListingIcon.svg"
+                      alt="Home Page link"
+                    />
+                    <p>Create a Listing</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  id="darkModeTag"
+                  href="/"
+                  class="block py-2 hover:bg-primaryLight rounded-md"
+                >
+                  <div id="darkModeContainer" class="flex items-center gap-3">
+                    <img
+                      src="/src/Media/headerIcons/darkModeIcon.svg"
+                      alt="Home Page link"
+                    />
+                    <p>Dark Mode</p>
+                  </div>
+                </a>
+              </li>
+              <li id="logoutTag" class="hidden">
+                <a
+                  href="/"
+                  onclick=""
+                  class="py-2 hover:bg-primaryLight rounded-md"
+                >
+                  <div id="logoutContainer" class="flex items-center gap-3">
+                    <img
+                      src="/src/Media/headerIcons/logoutIcon.svg"
+                      alt="Home Page link"
+                    />
+                    <p>Logout</p>
+                  </div>
+                </a>
+              </li>
+              <li class="" id="loginTag">
+                <a
+                  href="/pages/auth/login/"
+                  class="py-2 hover:bg-primaryLight rounded-md"
+                >
+                  <div id="logInContainer" class="flex items-center gap-3">
+                    <img
+                      src="/src/Media/headerIcons/logoutIcon.svg"
+                      alt="Home Page link"
+                    />
+                    <p>Login</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+      <div class="w-full relative">
+        <input
+          type="text"
+          placeholder="Search for a listing "
+          class="px-3 w-full rounded-md h-7 mt-5"
+        />
+        <img
+          src="src/Media/headerIcons/searchIcon.svg"
+          alt="search icon"
+          class="absolute right-3 top-[55%]"
+        />
+      </div>
     </header>
     <main class="flex flex-col gap-10 flex-grow self-center">
       <section id="carouselListings" class="">
@@ -188,9 +209,9 @@
         </figure>
       </section>
       <section id="auctionListingsWrapper" class="max-w-[80%] self-center">
-        <h1 class="text-center">Newest Active Auctions</h1>
+        <h1 class="text-center">Active Auctions</h1>
         <div
-          class="listingContainer bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
+          class="listingContainer1 animate-pulse bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
         >
           <div class="listingContainerTop flex flex-grow justify-between">
             <div class="nameAndPicture flex items-center gap-2">
@@ -210,7 +231,7 @@
           />
           <div class="listingInfo">
             <h4 class="listingTitle text-lg mt-5">Auction Item Listing</h4>
-            <p class="listingDesc mt-5">
+            <p class="listingDesc mt-5 overflow-hidden">
               "There is no one who loves pain itself, who seeks after it and
               wants to have it, simply because it is pain..."
             </p>

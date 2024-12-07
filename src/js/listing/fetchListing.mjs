@@ -1,4 +1,4 @@
-import { API_CREATE_LISTING } from "../../../API/constants.mjs";
+import { API_LISTINGS_BASE } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function fetchListing() {
@@ -10,7 +10,7 @@ export async function fetchListing() {
 
   try {
     const response = await fetch(
-      `${API_CREATE_LISTING}/${postId}?_seller=true&_bids=true`,
+      `${API_LISTINGS_BASE}/${postId}?_seller=true&_bids=true`,
       {
         method: "GET",
         headers: headers(),
