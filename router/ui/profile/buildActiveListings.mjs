@@ -18,7 +18,7 @@ export function buildActiveListings(activeListings, pfp, userName) {
                 </div>
                 <p class="date">${formatDate(listing.created)}</p>
               </div>
-              <img src="${listing.media[0].url}" class="activeListingImage object-cover rounded-xl mt-4 w-full"
+              <img src="${listing.media[0]?.url || "/src/Media/placeHolderListing.png"}" class="activeListingImage object-cover rounded-xl mt-4 w-full "
                 alt="listing image" />
               <div class="listingInfo">
               <div class="flex items-center justify-between mt-5">  
