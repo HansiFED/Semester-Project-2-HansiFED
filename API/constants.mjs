@@ -16,6 +16,10 @@ export const API_LISTINGS_BASE = `${API_BASE}/auction/listings`;
 
 export const API_AUCTION_PROFILES = `${API_BASE}/auction/profiles`;
 
+export const API_SEARCH_LISTINGS = `${API_LISTINGS_BASE}/search?_seller=true&_bids=true&`;
+
+export const API_SEARCH_PROFILES = `${API_AUCTION_PROFILES}/search`;
+
 export const myUserData = JSON.parse(localStorage.getItem("myUserData"));
 
 export const myUserName = myUserData?.data?.name || "";

@@ -1,14 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <!-- <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><img id="backToTop"
-          class="absolute right-2 w-10 -bottom-0 cursor-pointer" src="src/Media/backToTopIcon.svg"
-          alt="go back to top"></button> -->
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <script type="module" src="app.js"></script>
+    <title>Document</title>
+    <script type="module" src="/app.js"></script>
   </head>
 
   <body class="flex flex-col min-h-screen font-inriaserif">
@@ -152,102 +148,95 @@
           />
         </form>
         <img
-          src="src/Media/headerIcons/searchIcon.svg"
+          src="/src/Media/headerIcons/searchIcon.svg"
           alt="search icon"
           class="absolute right-3 top-[55%]"
         />
       </div>
     </header>
-    <main class="flex flex-col gap-10 flex-grow self-center">
-      <section id="carouselListings" class="">
-        <figure class="relative">
-          <img
-            src="/src/Media/placeHolderListing.png"
-            class="w-screen object-cover max-h-96"
-            alt="placeholder image"
-          />
-          <div
-            id="buttons"
-            class="w-full flex z-20 px-4 justify-between absolute top-[40%]"
-          >
+    <main
+      class="w-[90%] mt-5 self-center flex-grow animate-pulse flex flex-col"
+    >
+      <h3 class="" id="searchHeader">Search results for</h3>
+      <section id="usersWrapper" class="">
+        <h2 class="text-2xl mt-10">User(s)</h2>
+        <div id="userList" class="flex flex-wrap justify-evenly">
+          <div class="userContainer mt-5">
             <img
-              src="src/Media/arrowLeft.svg"
-              class="w-10 hover:animate-pulse cursor-pointer"
-              alt="previous listing"
+              id="userPFP"
+              class="w-20 h-20 rounded-full"
+              src="/src/Media/stockPfp.jpg"
+              alt="placeholder profile picture"
             />
-            <img
-              src="src/Media/arrowRight.svg"
-              class="w-10 hover:animate-pulse cursor-pointer"
-              alt="next listing"
-            />
+            <p id="userName">username</p>
           </div>
-          <figcaption
-            class="bg-black text-white absolute h-fit w-full bottom-0 bg-opacity-75 px-6 py-6"
-          >
-            <div class="flex flex-col gap-2">
-              <h2 class="text-3xl">Auction Listing</h2>
-              <p class="text-sm">
-                "There is no one who loves pain itself, who seeks after it and
-                wants to have it, simply because it is pain..."
-              </p>
-              <div
-                id="listingInfoContainer"
-                class="flex justify-between text-xs"
-              >
-                <div id="userContainer" class="flex gap-2">
+          <div class="userContainer mt-5">
+            <img
+              class="w-20 h-20 rounded-full"
+              src="/src/Media/stockPfp.jpg"
+              alt="placeholder profile picture"
+            />
+            <p>username</p>
+          </div>
+          <div class="userContainer mt-5">
+            <img
+              class="w-20 h-20 rounded-full"
+              src="/src/Media/stockPfp.jpg"
+              alt="placeholder profile picture"
+            />
+            <p>username</p>
+          </div>
+          <div class="userContainer mt-5">
+            <img
+              class="w-20 h-20 rounded-full"
+              src="/src/Media/stockPfp.jpg"
+              alt="placeholder profile picture"
+            />
+            <p>username</p>
+          </div>
+        </div>
+      </section>
+      <section id="listingsWrapper">
+        <h2 class="text-2xl mt-10">Listing(s)</h2>
+        <div id="listingsList">
+          <div class="listingContainer">
+            <div
+              class="listingContainer1 bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
+            >
+              <div class="listingContainerTop flex flex-grow justify-between">
+                <div class="nameAndPicture flex items-center gap-2">
                   <img
+                    class="listingPFP w-6 rounded-full"
                     src="/src/Media/stockPfp.jpg"
-                    class="w-4 h-4 rounded-full"
-                    alt="profile photo stock image"
+                    alt="user profile photo"
                   />
-                  <p>username</p>
+                  <p>HansiFed</p>
                 </div>
-                <div id="auctionEndingContainer" class="flex gap-2">
+                <p class="date">21 Des 2024</p>
+              </div>
+              <img
+                src="/src/Media/placeholderImg.jpeg"
+                class="activeListingImage object-cover rounded-xl mt-4 w-full"
+                alt="listing image"
+              />
+              <div class="listingInfo">
+                <h4 class="listingTitle text-lg mt-5">Auction Item Listing</h4>
+                <p class="listingDesc mt-5 overflow-hidden">
+                  "There is no one who loves pain itself, who seeks after it and
+                  wants to have it, simply because it is pain..."
+                </p>
+                <div class="bg-lightModeBlackText w-full h-[2px] mt-10"></div>
+                <div class="flex justify-between mt-5">
                   <p>Auction Ending:</p>
                   <p>9d 23h 10m 42s</p>
                 </div>
               </div>
             </div>
-          </figcaption>
-        </figure>
-      </section>
-      <section id="auctionListingsWrapper" class="max-w-[80%] self-center">
-        <h1 class="text-center">Active Auctions</h1>
-        <div
-          class="listingContainer1 animate-pulse bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
-        >
-          <div class="listingContainerTop flex flex-grow justify-between">
-            <div class="nameAndPicture flex items-center gap-2">
-              <img
-                class="listingPFP w-6 rounded-full"
-                src="/src/Media/stockPfp.jpg"
-                alt="user profile photo"
-              />
-              <p>HansiFed</p>
-            </div>
-            <p class="date">21 Des 2024</p>
-          </div>
-          <img
-            src="/src/Media/placeholderImg.jpeg"
-            class="activeListingImage object-cover rounded-xl mt-4 w-full"
-            alt="listing image"
-          />
-          <div class="listingInfo">
-            <h4 class="listingTitle text-lg mt-5">Auction Item Listing</h4>
-            <p class="listingDesc mt-5 overflow-hidden">
-              "There is no one who loves pain itself, who seeks after it and
-              wants to have it, simply because it is pain..."
-            </p>
-            <div class="bg-lightModeBlackText w-full h-[2px] mt-10"></div>
-            <div class="flex justify-between mt-5">
-              <p>Auction Ending:</p>
-              <p>9d 23h 10m 42s</p>
-            </div>
           </div>
         </div>
       </section>
     </main>
-    <footer class="bg-primaryBlue flex justify-center py-6">
+    <footer class="bg-primaryBlue flex justify-center py-6 mt-16">
       <p class="text-white text-xs">©2024 HansiFED</p>
     </footer>
   </body>
