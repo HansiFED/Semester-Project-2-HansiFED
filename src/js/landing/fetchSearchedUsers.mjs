@@ -2,7 +2,8 @@ import { accessToken, API_SEARCH_PROFILES } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function userSearch(userInput) {
-  let emptyArr = [];
+  let empty = 0;
+
   if (accessToken) {
     const response = await fetch(
       `${API_SEARCH_PROFILES}?limit=10&_listings=true&_wins=true&q=${userInput}`,
@@ -16,6 +17,6 @@ export async function userSearch(userInput) {
 
     return data;
   } else {
-    return emptyArr;
+    return empty;
   }
 }

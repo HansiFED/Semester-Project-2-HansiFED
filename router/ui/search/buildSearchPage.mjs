@@ -1,3 +1,4 @@
+import { accessToken } from "../../../API/constants.mjs";
 import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 import { listingRemainingIsoCalculator } from "../../../src/Utilities/listingRemainingIsoCalculator.mjs";
 
@@ -7,7 +8,7 @@ export function buildSearch() {
     localStorage.getItem("listingSearchData"),
   );
 
-  const searchedUsers = searchedUsersRaw.data;
+  const searchedUsers = searchedUsersRaw?.data || 0;
   const searchedListings = searchedListingsRaw.data;
 
   const searchKeyWord = localStorage.getItem("searchKeyWord");
@@ -21,7 +22,9 @@ export function buildSearch() {
   const userList = document.getElementById("userList");
   const listingsList = document.getElementById("listingsList");
 
-  if (searchedUsers.length > 0) {
+  if (!accessToken) {
+    userList.innerHTML = "<i> You must be logged in to view users </i>";
+  } else if (searchedUsers.length > 0) {
     userList.innerHTML = "";
     searchedUsers.forEach((user) => {
       const userContainer = document.createElement("div");
@@ -34,7 +37,7 @@ export function buildSearch() {
       const userImg = document.createElement("img");
       userImg.className = "w-20 h-20 object-cover rounded-full";
       userImg.src = `${user.avatar?.url || "/src/Media/stockPfp.jpg"}`;
-      userImg.alt = `${user.avatar.alt}`;
+      userImg.alt = `${user.avatar.alt || "User Avatar"}`;
 
       const userName = document.createElement("p");
       userName.innerText = user.name;
@@ -47,7 +50,7 @@ export function buildSearch() {
   }
 
   if (searchedListings.length > 0) {
-    listingsList.innerHTML = ""; //
+    listingsList.innerHTML = "";
 
     searchedListings.forEach((listing) => {
       const listingContainer = document.createElement("div");
