@@ -17,7 +17,8 @@ export async function buildLanding() {
     buildLandingListings(listing);
   });
 
-  carouselData.forEach((listing) => {});
+  buildLandingCarousel();
 
   document.querySelector(".listingContainer1").classList.add("hidden");
+  document.querySelector("main").classList.remove("animate-pulse");
 }

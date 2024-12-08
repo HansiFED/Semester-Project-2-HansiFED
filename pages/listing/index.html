@@ -139,7 +139,7 @@
         <div>
           <img
             id="listingImage"
-            class="w-full h-[385px] mt-10 object-cover"
+            class="w-full h-[385px] mt-10 object-cover rounded-xl"
             src="/src/Media/placeholderImg.jpeg"
             alt="placeholder image"
           />
@@ -183,24 +183,27 @@
           <label class="text-lg" for="bidAmount"> Place a bid: </label>
           <div class="flex items-center justify-between">
             <div class="flex gap-3">
-              <form class="flex flex-col" action="">
+              <form id="bidForm" class="flex" action="">
                 <input
-                  class="border border-lightModeDarkGray rounded-lg w-32"
+                  id="bidInput"
+                  class="border border-lightModeDarkGray rounded-lg w-32 px-3"
                   type="number"
                   name="bidAmount"
                 />
+                <img
+                  src="/src/Media/coinsIconLightMode.svg"
+                  class="ml-4"
+                  alt="bid amount icon"
+                />
+                <button
+                  class="bg-primaryBlue text-white px-7 py-1 ml-5 rounded-lg text-base"
+                >
+                  Place Bid
+                </button>
               </form>
-              <img
-                src="/src/Media/coinsIconLightMode.svg"
-                alt="bid amount icon"
-              />
             </div>
-            <button
-              class="bg-primaryBlue text-white px-7 py-1 rounded-lg text-base"
-            >
-              Place Bid
-            </button>
           </div>
+          <p id="errorMessage" class="text-red-700 mt-5 hidden"></p>
         </div>
         <div id="loginToPlaceBidContainer" class="flex flex-col hidden">
           <p class="text-lg">Want to place a bid?</p>

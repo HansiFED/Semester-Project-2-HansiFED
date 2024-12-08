@@ -14,7 +14,7 @@ export function buildWonBids(wonBids) {
                 </div>
                 <p class="date">${formatDate(listing.created)}</p>
               </div>
-              <img src="${listing.media[0]?.url || "/src/Media/placeHolderListing.png"}" class="activeListingImage object-cover rounded-xl mt-4 w-full"
+              <img src="${listing.media[0]?.url || "/src/Media/placeholderImg.jpeg"}" class="activeListingImage object-cover rounded-xl mt-4 w-full"
                 alt="listing image" />
               <div class="listingInfo">
                 <h4 class="listingTitle text-lg mt-5">${listing.title}</h4>

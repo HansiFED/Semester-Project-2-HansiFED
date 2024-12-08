@@ -158,12 +158,12 @@
         />
       </div>
     </header>
-    <main class="flex flex-col gap-10 flex-grow self-center">
+    <main class="flex flex-col gap-10 flex-grow self-center animate-pulse">
       <section id="carouselListings" class="">
         <figure class="relative">
           <img
-            src="/src/Media/placeHolderListing.png"
-            class="w-screen object-cover max-h-96"
+            src="/src/Media/placeholderImg.jpeg"
+            class="w-screen object-cover h-96"
             alt="placeholder image"
           />
           <div
@@ -171,11 +171,13 @@
             class="w-full flex z-20 px-4 justify-between absolute top-[40%]"
           >
             <img
+              id="previousButton"
               src="src/Media/arrowLeft.svg"
               class="w-10 hover:animate-pulse cursor-pointer"
               alt="previous listing"
             />
             <img
+              id="nextButton"
               src="src/Media/arrowRight.svg"
               class="w-10 hover:animate-pulse cursor-pointer"
               alt="next listing"
@@ -204,14 +206,14 @@
                 </div>
                 <div id="auctionEndingContainer" class="flex gap-2">
                   <p>Auction Ending:</p>
-                  <p>9d 23h 10m 42s</p>
+                  <p id="endingTimeCarousel">9d 23h 10m 42s</p>
                 </div>
               </div>
             </div>
           </figcaption>
         </figure>
       </section>
-      <section id="auctionListingsWrapper" class="max-w-[80%] self-center">
+      <section id="auctionListingsWrapper" class="max-w-[90%] self-center">
         <h1 class="text-center">Active Auctions</h1>
         <div
           class="listingContainer1 animate-pulse bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"

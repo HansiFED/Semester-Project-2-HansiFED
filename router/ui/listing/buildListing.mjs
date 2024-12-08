@@ -7,7 +7,7 @@ export async function buildListing() {
   const main = document.querySelector("main");
   const initialData = await fetchListing();
   const data = initialData.data;
-  const listingImage = data.media[0].url;
+  const listingImage = data.media[0]?.url || "/src/Media/placeholderImg.jpeg";
   const listingTitle = data.title;
   const currentBid = data.bids[0]?.amount || "0";
   const listingDesc = data.description;

@@ -19,7 +19,7 @@ export function buildActiveBids(activeBids) {
                 <img src="/src/Media/coinsIconLightMode.svg" alt="credit amount icon">
                 </div>
               </div>
-              <img src="${listing.listing.media[0]?.url || "/src/Media/placeHolderListing.png"}" class="activeListingImage object-cover rounded-xl mt-4 w-full"
+              <img src="${listing.listing.media[0]?.url || "/src/Media/placeholderImg.jpeg"}" class="activeListingImage object-cover rounded-xl mt-4 w-full"
                 alt="listing image" />
               <div class="listingInfo">
                 <h4 class="listingTitle overflow-hidden text-lg mt-5">${listing.listing.title}</h4>
