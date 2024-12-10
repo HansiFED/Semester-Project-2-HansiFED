@@ -6,7 +6,7 @@ export async function userSearch(userInput) {
 
   if (accessToken) {
     const response = await fetch(
-      `${API_SEARCH_PROFILES}?limit=10&_listings=true&_wins=true&q=${userInput}`,
+      `${API_SEARCH_PROFILES}?limit=15&_listings=true&_wins=true&q=${userInput}`,
       {
         method: "GET",
         headers: headers(),

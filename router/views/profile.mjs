@@ -1,6 +1,7 @@
 import { authCheck } from "../../src/Utilities/authguard.mjs";
 import { setHeaderCredits } from "../ui/header/setHeaderCredits.mjs";
 import { initHamburgerMenu } from "../ui/header/slideInHeader.mjs";
+import { buildEditForm } from "../ui/profile/buildEditForm.mjs";
 import { onBuild } from "../ui/profile/onBuild.mjs";
 
 authCheck();
@@ -18,3 +19,7 @@ initHamburgerMenu();
 setHeaderCredits();
 
 onBuild(userName);
+
+document
+  .getElementById("editUserIcon")
+  .addEventListener("click", buildEditForm);

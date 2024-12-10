@@ -1,4 +1,4 @@
-import { myUserName } from "../../../API/constants.mjs";
+import { myUserData, myUserName } from "../../../API/constants.mjs";
 import { isLoggedIn } from "../../../src/Utilities/authguard.mjs";
 import { logout } from "../../../src/Utilities/logout.mjs";
 
@@ -6,6 +6,9 @@ export function initHamburgerMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const menuClose = document.getElementById("menuClose");
   const menu = document.getElementById("menu");
+  const userDataRaw = myUserData;
+
+  console.log("userdata", userDataRaw);
 
   menu.classList.remove("hidden");
 
@@ -19,6 +22,10 @@ export function initHamburgerMenu() {
   });
 
   if (isLoggedIn()) {
+    let userImage = document.getElementById("userProfileImage");
+    userImage.src = userDataRaw.data.avatar.url;
+    userImage.alt = userDataRaw.data.avatar.alt;
+
     document.getElementById("creditTag").classList.remove("hidden");
     document.getElementById("profileTag").classList.remove("hidden");
     document.getElementById("createTag").classList.remove("hidden");

@@ -30,6 +30,14 @@
           </button>
           <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
             <li class="hidden" id="creditTag">
+              <div class="flex justify-center items-center w-full mb-10">
+                <img
+                  id="userProfileImage"
+                  class="w-20 h-20 rounded-full"
+                  src="src/Media/stockPfp.jpg"
+                  alt="user profile picture"
+                />
+              </div>
               <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
                 <div
                   id="creditsHeaderAmountContainer"
@@ -135,13 +143,30 @@
       </nav>
     </header>
     <main class="w-[80%] self-center flex-grow animate-pulse">
-      <section id="listingInfoWrapper">
+      <section id="listingInfoWrapper" class="relative">
         <div>
           <img
             id="listingImage"
-            class="w-full h-[385px] mt-10 object-cover rounded-xl"
+            class="w-full h-[385px] mt-10 object-cover rounded-xl transition-transform duration-500 ease-in-out opacity-100"
             src="/src/Media/placeholderImg.jpeg"
             alt="placeholder image"
+          />
+        </div>
+        <div
+          id="buttons"
+          class="hidden px-4 w-full flex z-20 justify-between absolute top-1/3"
+        >
+          <img
+            id="previousButton"
+            src="/src/Media/arrowLeft.svg"
+            class="w-10 hover:animate-pulse cursor-pointer"
+            alt="previous listing"
+          />
+          <img
+            id="nextButton"
+            src="/src/Media/arrowRight.svg"
+            class="w-10 hover:animate-pulse cursor-pointer"
+            alt="next listing"
           />
         </div>
         <div class="flex flex-col">
