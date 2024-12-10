@@ -45,74 +45,76 @@ export async function buildListing() {
 
   userInfo.classList.add("cursor-pointer");
 
-  bidders.forEach((bid) => {
-    const bidderContainer = document.createElement("div");
-    bidderContainer.classList.add("mt-8");
+  if (accessToken) {
+    document.getElementById("currentBiddersWrapper").classList.remove("hidden");
+    bidders.forEach((bid) => {
+      const bidderContainer = document.createElement("div");
+      bidderContainer.classList.add("mt-8");
 
-    const biddersChildContainer = document.createElement("div");
-    biddersChildContainer.className = "flex bg-[#F2F4F6]";
+      const biddersChildContainer = document.createElement("div");
+      biddersChildContainer.className = "flex bg-[#F2F4F6]";
 
-    const bidderInfoWrapper = document.createElement("div");
-    bidderInfoWrapper.classList.add("flex", "cursor-pointer");
+      const bidderInfoWrapper = document.createElement("div");
+      bidderInfoWrapper.classList.add("flex", "cursor-pointer");
 
-    const bidderPfp = document.createElement("img");
-    bidderPfp.className = "w-6 h-6 object-cover rounded-full";
-    bidderPfp.src = bid.bidder.avatar.url;
+      const bidderPfp = document.createElement("img");
+      bidderPfp.className = "w-6 h-6 object-cover rounded-full";
+      bidderPfp.src = bid.bidder.avatar.url;
 
-    const bidderUserName = document.createElement("p");
-    bidderUserName.className = "ml-3";
-    bidderUserName.innerHTML = `${bid.bidder.name}:`;
+      const bidderUserName = document.createElement("p");
+      bidderUserName.className = "ml-3";
+      bidderUserName.innerHTML = `${bid.bidder.name}:`;
 
-    const userBid = document.createElement("div");
-    userBid.className = "flex ml-2 gap-2";
+      const userBid = document.createElement("div");
+      userBid.className = "flex ml-2 gap-2";
 
-    const userBidAmount = document.createElement("p");
-    userBidAmount.classList.add("ml-5");
-    userBidAmount.innerHTML = bid.amount;
+      const userBidAmount = document.createElement("p");
+      userBidAmount.classList.add("ml-5");
+      userBidAmount.innerHTML = bid.amount;
 
-    const creditsImageIcon = document.createElement("img");
-    creditsImageIcon.src = "/src/Media/coinsIconLightMode.svg";
+      const creditsImageIcon = document.createElement("img");
+      creditsImageIcon.src = "/src/Media/coinsIconLightMode.svg";
 
-    const timeSinceBidPElement = document.createElement("p");
-    timeSinceBidPElement.classList.add("ml-auto");
-    timeSinceBidPElement.innerHTML = `${timeSinceBid(bid.created)}`;
+      const timeSinceBidPElement = document.createElement("p");
+      timeSinceBidPElement.classList.add("ml-auto");
+      timeSinceBidPElement.innerHTML = `${timeSinceBid(bid.created)}`;
 
-    bidderInfoWrapper.addEventListener("click", () => {
-      window.location.href = `/pages/profile/?username=${bid.bidder.name}`;
+      bidderInfoWrapper.addEventListener("click", () => {
+        window.location.href = `/pages/profile/?username=${bid.bidder.name}`;
+      });
+
+      userBid.append(userBidAmount, creditsImageIcon);
+      bidderInfoWrapper.append(bidderPfp, bidderUserName);
+      biddersChildContainer.append(
+        bidderInfoWrapper,
+        userBid,
+        timeSinceBidPElement,
+      );
+      bidderContainer.append(biddersChildContainer);
+      const currentBiddersHeader = document.querySelector(
+        "#currentBiddersWrapper > div",
+      );
+      currentBiddersHeader.insertAdjacentElement("afterend", bidderContainer);
     });
 
-    userBid.append(userBidAmount, creditsImageIcon);
-    bidderInfoWrapper.append(bidderPfp, bidderUserName);
-    biddersChildContainer.append(
-      bidderInfoWrapper,
-      userBid,
-      timeSinceBidPElement,
-    );
-    bidderContainer.append(biddersChildContainer);
-    const currentBiddersHeader = document.querySelector(
-      "#currentBiddersWrapper > div",
-    );
-    currentBiddersHeader.insertAdjacentElement("afterend", bidderContainer);
-  });
+    userInfo.addEventListener("click", () => {
+      window.location.href = `/pages/profile/?username=${sellerId}`;
+    });
 
+    if (data.endsAt) {
+      setInterval(() => {
+        const updatedTime = listingRemainingIsoCalculator(data.endsAt);
+        auctionEndingDomElement.textContent = updatedTime;
+      }, 1000);
+    }
+
+    if (currentBid == "0") {
+      document.getElementById("currentBiddersWrapper").classList.add("hidden");
+    }
+
+    if (myUserName == sellerId) {
+      document.getElementById("placeBidWrapper").classList.add("hidden");
+    }
+  }
   main.classList.remove("animate-pulse");
-
-  userInfo.addEventListener("click", () => {
-    window.location.href = `/pages/profile/?username=${sellerId}`;
-  });
-
-  if (data.endsAt) {
-    setInterval(() => {
-      const updatedTime = listingRemainingIsoCalculator(data.endsAt);
-      auctionEndingDomElement.textContent = updatedTime;
-    }, 1000);
-  }
-
-  if (currentBid == "0") {
-    document.getElementById("currentBiddersWrapper").classList.add("hidden");
-  }
-
-  if (myUserName == sellerId) {
-    document.getElementById("placeBidWrapper").classList.add("hidden");
-  }
 }
