@@ -1,12 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
-  content: ["./**/**.{html,js}", "!./node_modules/**/*"],
+  content: [
+    "./*.{html,js,ts}", // Fixed path
+    "./src/**/*.{html,js,ts}",
+    "./**/*.{html,js,ts}",
+    "!./node_modules//*",
+  ],
   theme: {
     extend: {
       fontFamily: {
         inriaserif: ['"Inria Serif"', "serif"],
-        inriasans: ['"Inria Sans"', "serif"],
+        inriasans: ['"Inria Sans"', "sans-serif"], // Fixed font type
       },
       colors: {
         primaryYellow: "#FFC107", // Yellow from both palettes
@@ -29,5 +34,6 @@ export default {
       },
     },
   },
+  darkMode: "class", // Added dark mode support
   plugins: [],
 };

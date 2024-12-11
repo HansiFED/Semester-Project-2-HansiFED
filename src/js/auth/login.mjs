@@ -19,6 +19,7 @@ export async function login({ email, password }) {
     console.log(data);
 
     if (!response.ok) {
+      document.getElementById("userError").classList.remove("hidden");
       document.getElementById("userError").innerHTML =
         `${data.errors[0].message}`;
     }

@@ -8,8 +8,15 @@
   </head>
 
   <body class="flex flex-col min-h-screen justify-between font-inriaserif">
-    <header class="bg-primaryBlue flex justify-between p-6 items-center">
-      <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
+    <header
+      class="bg-primaryBlue flex justify-between p-6 items-center sticky top-0 z-50"
+    >
+      <a href="/">
+        <img
+          src="/src/Media/site-logo.svg"
+          alt="Bidly site logo"
+          class="hover:scale-105 transition transition-200"
+      /></a>
       <nav>
         <button id="menuToggle">
           <img

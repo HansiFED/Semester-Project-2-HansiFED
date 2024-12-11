@@ -1,6 +1,7 @@
 import { onEdit } from "./onEdit.mjs";
 
 export async function buildEditForm() {
+  document.getElementById("editUserFormWrapper").classList.remove("hidden");
   const overlay = document.getElementById("userForm");
   const editUserButton = document.getElementById("editUserIcon");
 
