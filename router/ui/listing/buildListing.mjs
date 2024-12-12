@@ -52,7 +52,7 @@ export async function buildListing() {
       bidderContainer.classList.add("mt-8");
 
       const biddersChildContainer = document.createElement("div");
-      biddersChildContainer.className = "flex bg-[#F2F4F6]";
+      biddersChildContainer.className = "flex";
 
       const bidderInfoWrapper = document.createElement("div");
       bidderInfoWrapper.classList.add("flex", "cursor-pointer");

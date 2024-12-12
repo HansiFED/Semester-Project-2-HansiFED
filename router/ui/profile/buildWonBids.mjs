@@ -12,7 +12,8 @@ export function buildWonBids(wonBids) {
       "listingContainer flex flex-col flex-grow bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
 
     const listingTopDiv = document.createElement("div");
-    listingTopDiv.className = "listingContainerTop flex justify-between";
+    listingTopDiv.className =
+      "listingContainerTop flex justify-between flex-wrap gap-4";
 
     const nameAndPictureDiv = document.createElement("div");
     nameAndPictureDiv.className = "nameAndPicture flex items-center gap-2";

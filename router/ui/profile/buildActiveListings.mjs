@@ -15,7 +15,8 @@ export function buildActiveListings(activeListings, pfp, userName) {
 
     // Create the top part of the listing
     const listingTopDiv = document.createElement("div");
-    listingTopDiv.className = "listingContainerTop flex justify-between";
+    listingTopDiv.className =
+      "listingContainerTop flex justify-between flex-wrap gap-4";
 
     // Create the name and picture container
     const nameAndPictureDiv = document.createElement("div");

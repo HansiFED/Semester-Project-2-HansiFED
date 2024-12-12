@@ -14,7 +14,8 @@ export function buildActiveBids(activeBids) {
 
     // Create the top section of the bid
     const bidTopDiv = document.createElement("div");
-    bidTopDiv.className = "listingContainerTop flex justify-between";
+    bidTopDiv.className =
+      "listingContainerTop flex justify-between flex-wrap gap-4";
 
     const nameAndPictureDiv = document.createElement("div");
     nameAndPictureDiv.className = "nameAndPicture flex items-center gap-2";
