@@ -73,6 +73,7 @@ export async function buildListing() {
       userBidAmount.innerHTML = bid.amount;
 
       const creditsImageIcon = document.createElement("img");
+      creditsImageIcon.alt = "amount of credits icon";
       creditsImageIcon.setAttribute("src", "/src/Media/coinsIconLightMode.svg");
 
       const timeSinceBidPElement = document.createElement("p");
