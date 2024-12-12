@@ -24,13 +24,12 @@ export async function registerUser({ name, email, password }) {
     if (!response.ok) {
       userError.style.display = "block";
       userError.innerHTML = `${result.errors[0].message}`;
-      window.alert("oh no balls");
     } else if (response.ok) {
       userSuccess.style.display = "block";
       userSuccess.innerHTML = `User was created successfully, logging in...`;
       setTimeout(() => {
         login({ email, password });
-      }, 6000);
+      }, 3000);
     }
 
     return result;

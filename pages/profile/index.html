@@ -15,7 +15,7 @@
         <img
           src="/src/Media/site-logo.svg"
           alt="Bidly site logo"
-          class="hover:scale-105 transition transition-200"
+          class="hover:scale-105 transition"
       /></a>
       <nav>
         <button id="menuToggle">
@@ -77,10 +77,10 @@
               >
                 <div class="flex items-center gap-3">
                   <img
-                    src="/src/Media/headerIcons/myProfileIcon-toggled.svg"
+                    src="/src/Media/headerIcons/myProfileIcon.svg"
                     alt="Home Page link"
                   />
-                  <p class="text-primaryYellow underline">My Profile</p>
+                  <p id="myProfileName" class="">My Profile</p>
                 </div>
               </a>
             </li>
@@ -150,7 +150,7 @@
       </nav>
     </header>
     <main
-      class="flex flex-col flex-grow gap-10 self-center items-center w-screen animate-pulse"
+      class="flex flex-col flex-grow gap-10 self-center w-screen animate-pulse"
     >
       <section id="profileBannerWrapper" class="relative">
         <img

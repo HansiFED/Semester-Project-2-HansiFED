@@ -15,7 +15,7 @@
         <img
           src="/src/Media/site-logo.svg"
           alt="Bidly site logo"
-          class="hover:scale-105 transition transition-200"
+          class="hover:scale-105 transition"
       /></a>
       <nav>
         <button id="menuToggle">
@@ -149,12 +149,12 @@
         </div>
       </nav>
     </header>
-    <main class="w-[80%] self-center flex-grow animate-pulse">
+    <main class="w-[80%] self-center flex-grow animate-pulse max-w-[1000px]">
       <section id="listingInfoWrapper" class="relative">
         <div>
           <img
             id="listingImage"
-            class="w-full h-[385px] mt-10 object-cover rounded-xl transition-transform duration-500 ease-in-out opacity-100"
+            class="w-full h-[385px] mt-10 object-cover rounded-xl transition-transform duration-500 ease-in-out opacity-100 lg:h-[500px]"
             src="/src/Media/placeholderImg.jpeg"
             alt="placeholder image"
           />
@@ -181,13 +181,13 @@
             <h1 id="listingTitle">Listing Title</h1>
             <div class="flex items-center gap-2">
               <img src="/src/Media/coinsIconLightMode.svg" alt="" />
-              <p id="currentBid" class="text-lg">0</p>
+              <p id="currentBid" class="text-lg md:text-xl">0</p>
             </div>
           </div>
           <div class="bg-black h-[1px] w-full"></div>
         </div>
         <div class="mt-5">
-          <p id="listingDesc">
+          <p id="listingDesc" class="md:text-lg">
             "There is no one who loves pain itself, who seeks after it and wants
             to have it, simply because it is pain... There is no one who loves
             pain itself, who seeks after it and wants to have it, simply because
@@ -195,7 +195,7 @@
           </p>
         </div>
         <div class="flex justify-between mt-5">
-          <div id="userInfo" class="flex text-xs items-center">
+          <div id="userInfo" class="flex items-center text-xs sm:text-base">
             <img
               id="userPfp"
               class="w-6 h-6 object-cover rounded-full"
@@ -204,7 +204,7 @@
             />
             <p class="ml-3" id="userName">username</p>
           </div>
-          <div class="flex text-xs items-center gap-3">
+          <div class="flex text-xs items-center gap-3 sm:text-base">
             <p>Auction Ending:</p>
             <p id="endsAt">9d 23h 10m 42s</p>
           </div>
@@ -212,7 +212,9 @@
       </section>
       <section id="placeBidWrapper" class="mt-12">
         <div id="placeBidContainer" class="flex flex-col">
-          <label class="text-lg" for="bidAmount"> Place a bid: </label>
+          <label class="sm:text-lg lg:text-xl" for="bidAmount">
+            Place a bid:
+          </label>
           <div class="flex items-center justify-between">
             <div class="flex gap-3">
               <form id="bidForm" class="flex" action="">
@@ -228,7 +230,7 @@
                   alt="bid amount icon"
                 />
                 <button
-                  class="bg-primaryBlue text-white px-7 py-1 ml-5 rounded-lg text-base"
+                  class="bg-primaryBlue hover:text-primaryYellow transition duration-150 hover:scale-[102%] text-white px-7 py-1 ml-5 rounded-lg text-sm sm:text-lg lg:text-xl"
                 >
                   Place Bid
                 </button>
