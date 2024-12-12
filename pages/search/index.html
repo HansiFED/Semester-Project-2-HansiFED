@@ -10,7 +10,7 @@
   <body class="flex flex-col min-h-screen font-inriaserif">
     <header
       id="header"
-      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between p-6 items-center"
+      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between items-center p-6"
     >
       <section class="flex w-full justify-between items-center">
         <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
@@ -146,20 +146,20 @@
           </div>
         </nav>
       </section>
-      <div class="w-full relative">
-        <form id="searchForm" action="">
+      <div class="w-full md:absolute md:top-[6px] md:right-32 md:w-96">
+        <form id="searchForm" action="" class="">
           <input
             id="searchBar"
             type="text"
-            placeholder="Search for a listing "
+            placeholder="Search for a listing / user(s) "
             class="px-3 w-full rounded-md h-7 mt-5"
           />
+          <img
+            src="/src/Media/headerIcons/searchIcon.svg"
+            alt="search icon"
+            class="absolute right-12 top-[65%] md:right-6 md:top-[55%]"
+          />
         </form>
-        <img
-          src="/src/Media/headerIcons/searchIcon.svg"
-          alt="search icon"
-          class="absolute right-3 top-[55%]"
-        />
       </div>
     </header>
     <main
@@ -168,7 +168,7 @@
       <h3 class="" id="searchHeader">Search results for</h3>
       <section id="usersWrapper" class="">
         <h2 class="text-2xl mt-10 mb-3">User(s)</h2>
-        <div id="userList" class="flex flex-wrap justify-evenly">
+        <div id="userList" class="flex flex-wrap gap-2 justify-around">
           <div class="userContainer mt-5">
             <img
               id="userPFP"
@@ -206,7 +206,10 @@
       </section>
       <section id="listingsWrapper">
         <h2 class="text-2xl mt-10">Listing(s)</h2>
-        <div id="listingsList">
+        <div
+          id="listingsList"
+          class="flex flex-col md:flex-row md:flex-wrap gap-6 md:w-full"
+        >
           <div class="listingContainer">
             <div
               class="listingContainer1 bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
