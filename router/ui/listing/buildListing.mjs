@@ -73,7 +73,7 @@ export async function buildListing() {
       userBidAmount.innerHTML = bid.amount;
 
       const creditsImageIcon = document.createElement("img");
-      creditsImageIcon.src = "/src/Media/coinsIconLightMode.svg";
+      creditsImageIcon.setAttribute("src", "/src/Media/coinsIconLightMode.svg");
 
       const timeSinceBidPElement = document.createElement("p");
       timeSinceBidPElement.classList.add("ml-auto");
