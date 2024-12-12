@@ -7,16 +7,8 @@ export function buildLandingListings(listing) {
   );
 
   const listingContainer = document.createElement("div");
-  listingContainer.classList.add(
-    "listingContainer",
-    "bg-lightModeBoxes",
-    "mt-8",
-    "px-4",
-    "py-4",
-    "mb-8",
-    "rounded-xl",
-    "cursor-pointer",
-  );
+  listingContainer.className =
+    "listingContainer flex flex-col flex-grow bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
 
   listingContainer.addEventListener("click", () => {
     window.location.href = `/pages/listing/?id=${listing.id}`;
@@ -24,26 +16,14 @@ export function buildLandingListings(listing) {
 
   // Profile container
   const profileContainer = document.createElement("div");
-  profileContainer.classList.add(
-    "nameAndPicture",
-    "flex",
-    "items-center",
-    "gap-2",
-  );
-
+  profileContainer.className = "nameAndPicture flex items-center gap-2";
   profileContainer.addEventListener("click", (event) => {
     event.stopPropagation();
     window.location.href = `/pages/profile/?username=${listing.seller.name}`;
   });
 
   const profileImage = document.createElement("img");
-  profileImage.classList.add(
-    "listingPFP",
-    "w-6",
-    "h-6",
-    "rounded-full",
-    "object-cover",
-  );
+  profileImage.className = "listingPFP w-6 h-6 rounded-full object-cover";
   profileImage.src = listing.seller.avatar.url;
   profileImage.alt = listing.seller.avatar.alt || "User profile photo";
 
@@ -55,15 +35,11 @@ export function buildLandingListings(listing) {
 
   // Listing container top
   const listingContainerTop = document.createElement("div");
-  listingContainerTop.classList.add(
-    "listingContainerTop",
-    "flex",
-    "flex-grow",
-    "justify-between",
-  );
+  listingContainerTop.className =
+    "listingContainerTop flex justify-between flex-wrap gap-4";
 
   const dateElement = document.createElement("p");
-  dateElement.classList.add("date");
+  dateElement.className = "date";
   dateElement.textContent = formatDate(listing.created);
 
   listingContainerTop.appendChild(profileContainer);
@@ -71,54 +47,33 @@ export function buildLandingListings(listing) {
 
   // Media container
   const mediaContainer = document.createElement("div");
-  mediaContainer.classList.add(
-    "w-full",
-    "max-h-[200px]",
-    "h-full",
-    "rounded-xl",
-    "mt-4",
-    "overflow-hidden",
-  );
+  mediaContainer.className = "w-full h-[300px] rounded-xl mt-4 overflow-hidden";
 
   const mediaImage = document.createElement("img");
   mediaImage.src = listing.media[0]?.url || "/src/Media/placeholderImg.jpeg";
-  mediaImage.classList.add(
-    "activeListingImage",
-    "object-cover",
-    "w-full",
-    "h-full",
-  );
+  mediaImage.className = "activeListingImage object-cover w-full h-full";
   mediaImage.alt = listing.media[0]?.alt || "Listing image";
 
   mediaContainer.appendChild(mediaImage);
 
   // Listing info
   const listingInfo = document.createElement("div");
-  listingInfo.classList.add("listingInfo");
+  listingInfo.className = "listingInfo flex flex-col flex-grow justify-between";
 
   const titleElement = document.createElement("h4");
-  titleElement.classList.add("listingTitle", "text-lg", "mt-5");
+  titleElement.className =
+    "listingTitle text-lg mt-5 overflow-hidden line-clamp-2";
   titleElement.textContent = listing.title;
 
   const descElement = document.createElement("p");
-  descElement.classList.add("listingDesc", "mt-5");
-
+  descElement.className = "listingDesc mt-5 overflow-hidden line-clamp-4";
   const descItalic = document.createElement("i");
-  descItalic.classList.add("line-clamp-4", "overflow-hidden");
+  descItalic.className = "overflow-hidden line-clamp-4";
   descItalic.textContent = listing.description;
-
   descElement.appendChild(descItalic);
 
-  const separator = document.createElement("div");
-  separator.classList.add(
-    "bg-lightModeBlackText",
-    "w-full",
-    "h-[2px]",
-    "mt-10",
-  );
-
   const auctionEndingContainer = document.createElement("div");
-  auctionEndingContainer.classList.add("flex", "justify-between", "mt-5");
+  auctionEndingContainer.className = "flex justify-between mt-5";
 
   const auctionEndingLabel = document.createElement("p");
   auctionEndingLabel.textContent = "Auction Ending:";
@@ -128,6 +83,7 @@ export function buildLandingListings(listing) {
   auctionEndingValue.textContent = listingRemainingIsoCalculator(
     listing.endsAt,
   );
+
   setInterval(() => {
     auctionEndingValue.textContent = listingRemainingIsoCalculator(
       listing.endsAt,
@@ -137,12 +93,21 @@ export function buildLandingListings(listing) {
   auctionEndingContainer.appendChild(auctionEndingLabel);
   auctionEndingContainer.appendChild(auctionEndingValue);
 
-  listingInfo.appendChild(titleElement);
-  listingInfo.appendChild(descElement);
-  listingInfo.appendChild(separator);
-  listingInfo.appendChild(auctionEndingContainer);
+  // Create the bottomDiv wrapper for the auction details
+  const bottomDiv = document.createElement("div");
+  bottomDiv.className = "mt-auto";
+
+  const lineElement = document.createElement("div");
+  lineElement.className = "bg-lightModeBlackText w-full h-[2px] mt-10";
+
+  bottomDiv.appendChild(lineElement);
+  bottomDiv.appendChild(auctionEndingContainer);
 
   // Assemble the listing container
+  listingInfo.appendChild(titleElement);
+  listingInfo.appendChild(descElement);
+  listingInfo.appendChild(bottomDiv); // Add bottomDiv here
+
   listingContainer.appendChild(listingContainerTop);
   listingContainer.appendChild(mediaContainer);
   listingContainer.appendChild(listingInfo);

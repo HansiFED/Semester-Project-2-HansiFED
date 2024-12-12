@@ -167,12 +167,14 @@
         </form>
       </div>
     </header>
-    <main class="flex flex-col gap-10 flex-grow self-center animate-pulse">
+    <main
+      class="flex flex-col gap-10 flex-grow self-center animate-pulse md:max-w-[1200px]"
+    >
       <section id="carouselListings" class="">
         <figure class="relative">
           <img
             src="/src/Media/placeholderImg.jpeg"
-            class="w-screen object-cover h-96"
+            class="w-screen object-cover h-96 md:h-[500px]"
             alt="placeholder image"
           />
           <div
@@ -226,7 +228,10 @@
       </section>
       <section id="auctionListingsWrapper" class="max-w-[90%] self-center">
         <h1 class="text-center">Active Auctions</h1>
-        <div id="auctionListingsContainer" class="w-full">
+        <div
+          id="auctionListingsContainer"
+          class="w-full flex md:flex-row flex-wrap md:gap-8"
+        >
           <div
             class="listingContainer1 animate-pulse bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl"
           >
@@ -243,7 +248,7 @@
             </div>
             <img
               src="/src/Media/placeholderImg.jpeg"
-              class="activeListingImage object-cover rounded-xl mt-4 w-full"
+              class="activeListingImage object-cover rounded-xl mt-4 h-[300px] w-full"
               alt="listing image"
             />
             <div class="listingInfo">
