@@ -124,9 +124,15 @@ export function buildLandingListings(listing) {
   auctionEndingLabel.textContent = "Auction Ending:";
 
   const auctionEndingValue = document.createElement("p");
+  auctionEndingValue.className = "auctionEndingValue font-inriasans font-light";
   auctionEndingValue.textContent = listingRemainingIsoCalculator(
     listing.endsAt,
   );
+  setInterval(() => {
+    auctionEndingValue.textContent = listingRemainingIsoCalculator(
+      listing.endsAt,
+    );
+  }, 1000);
 
   auctionEndingContainer.appendChild(auctionEndingLabel);
   auctionEndingContainer.appendChild(auctionEndingValue);

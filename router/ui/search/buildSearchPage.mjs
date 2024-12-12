@@ -100,12 +100,13 @@ export function buildSearch() {
         "listingInfo flex flex-col flex-grow justify-between";
 
       const titleElement = document.createElement("h4");
-      titleElement.className = "listingTitle text-lg mt-5";
+      titleElement.className =
+        "listingTitle text-lg mt-5 overflow-hidden line-clamp-2 overflow-hidden line-clamp-2";
       titleElement.innerText = listing.title;
 
       const descriptionElement = document.createElement("p");
       descriptionElement.className =
-        "listingDesc mt-5 overflow-hidden line-clamp-4";
+        "listingDesc mt-5 overflow-hidden line-clamp-4 overflow-hidden line-clamp-4";
       descriptionElement.textContent = `"${listing.description}"`;
 
       const bottomDiv = document.createElement("div");

@@ -22,6 +22,14 @@ button {
   position: relative;
 }
 
+.auctionEndingValue {
+  font-feature-settings: "tnum";
+}
+
+#endingTimeCarousel {
+  font-feature-settings: "tnum";
+}
+
 .loader::before {
   content: "";
   position: absolute;

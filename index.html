@@ -1,9 +1,5 @@
 <!doctype html>
 <html lang="en">
-  <!-- <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><img id="backToTop"
-          class="absolute right-2 w-10 -bottom-0 cursor-pointer" src="src/Media/backToTopIcon.svg"
-          alt="go back to top"></button> -->
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,10 +10,15 @@
   <body class="flex flex-col min-h-screen font-inriaserif">
     <header
       id="header"
-      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between p-6 items-center"
+      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between items-center p-6"
     >
       <section class="flex w-full justify-between items-center">
-        <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
+        <a href="/">
+          <img
+            src="/src/Media/site-logo.svg"
+            alt="Bidly site logo"
+            class="hover:scale-105 transition"
+        /></a>
         <nav>
           <button id="menuToggle">
             <img
@@ -150,20 +151,20 @@
           </div>
         </nav>
       </section>
-      <div class="w-full relative">
-        <form id="searchForm" action="">
+      <div class="w-full md:absolute md:top-[6px] md:right-32 md:w-96">
+        <form id="searchForm" action="" class="">
           <input
             id="searchBar"
             type="text"
-            placeholder="Search for a listing or user  "
+            placeholder="Search for a listing / user(s) "
             class="px-3 w-full rounded-md h-7 mt-5"
           />
+          <img
+            src="/src/Media/headerIcons/searchIcon.svg"
+            alt="search icon"
+            class="absolute right-12 top-[65%] md:right-6 md:top-[55%]"
+          />
         </form>
-        <img
-          src="src/Media/headerIcons/searchIcon.svg"
-          alt="search icon"
-          class="absolute right-3 top-[55%]"
-        />
       </div>
     </header>
     <main class="flex flex-col gap-10 flex-grow self-center animate-pulse">
@@ -214,7 +215,9 @@
                 </div>
                 <div id="auctionEndingContainer" class="flex gap-2">
                   <p>Auction Ending:</p>
-                  <p id="endingTimeCarousel">9d 23h 10m 42s</p>
+                  <p id="endingTimeCarousel" class="font-inriasans font-light">
+                    9d 23h 10m 42s
+                  </p>
                 </div>
               </div>
             </div>
@@ -244,8 +247,14 @@
               alt="listing image"
             />
             <div class="listingInfo">
-              <h4 class="listingTitle text-lg mt-5">Auction Item Listing</h4>
-              <p class="listingDesc mt-5 overflow-hidden">
+              <h4
+                class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+              >
+                Auction Item Listing
+              </h4>
+              <p
+                class="listingDesc mt-5 overflow-hidden line-clamp-4 overflow-hidden"
+              >
                 "There is no one who loves pain itself, who seeks after it and
                 wants to have it, simply because it is pain..."
               </p>

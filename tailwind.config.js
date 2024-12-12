@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         inriaserif: ['"Inria Serif"', "serif"],
         inriasans: ['"Inria Sans"', "sans-serif"], // Fixed font type
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         primaryYellow: "#FFC107", // Yellow from both palettes

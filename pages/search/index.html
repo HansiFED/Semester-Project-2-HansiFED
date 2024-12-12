@@ -13,7 +13,12 @@
       class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between items-center p-6"
     >
       <section class="flex w-full justify-between items-center">
-        <img src="/src/Media/site-logo.svg" alt="Bidly site logo" />
+        <a href="/">
+          <img
+            src="/src/Media/site-logo.svg"
+            alt="Bidly site logo"
+            class="hover:scale-105 transition"
+        /></a>
         <nav>
           <button id="menuToggle">
             <img
@@ -168,7 +173,7 @@
       <h3 class="" id="searchHeader">Search results for</h3>
       <section id="usersWrapper" class="">
         <h2 class="text-2xl mt-10 mb-3">User(s)</h2>
-        <div id="userList" class="flex flex-wrap gap-2 justify-around">
+        <div id="userList" class="flex flex-wrap gap-2 justify-evenly">
           <div class="userContainer mt-5">
             <img
               id="userPFP"
@@ -231,8 +236,14 @@
                 alt="listing image"
               />
               <div class="listingInfo">
-                <h4 class="listingTitle text-lg mt-5">Auction Item Listing</h4>
-                <p class="listingDesc mt-5 overflow-hidden">
+                <h4
+                  class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2 overflow-hidden line-clamp-2"
+                >
+                  Auction Item Listing
+                </h4>
+                <p
+                  class="listingDesc mt-5 overflow-hidden line-clamp-4 overflow-hidden"
+                >
                   "There is no one who loves pain itself, who seeks after it and
                   wants to have it, simply because it is pain..."
                 </p>

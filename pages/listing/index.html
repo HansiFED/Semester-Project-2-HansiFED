@@ -206,7 +206,9 @@
           </div>
           <div class="flex text-xs items-center gap-3 sm:text-base">
             <p>Auction Ending:</p>
-            <p id="endsAt">9d 23h 10m 42s</p>
+            <p class="auctionEndingValue font-inriasans font-light" id="endsAt">
+              9d 23h 10m 42s
+            </p>
           </div>
         </div>
       </section>
@@ -223,6 +225,7 @@
                   class="border border-lightModeDarkGray rounded-lg w-32 px-3"
                   type="number"
                   name="bidAmount"
+                  required
                 />
                 <img
                   src="/src/Media/coinsIconLightMode.svg"

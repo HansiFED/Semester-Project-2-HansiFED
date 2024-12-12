@@ -61,12 +61,13 @@ export function buildActiveBids(activeBids) {
       "listingInfo flex flex-col flex-grow justify-between";
 
     const titleElement = document.createElement("h4");
-    titleElement.className = "listingTitle text-lg mt-5";
+    titleElement.className =
+      "listingTitle text-lg mt-5 overflow-hidden line-clamp-2";
     titleElement.textContent = bid.listing.title;
 
     const descriptionParagraph = document.createElement("p");
     descriptionParagraph.className =
-      "listingDesc mt-5 overflow-hidden line-clamp-4";
+      "listingDesc mt-5 overflow-hidden line-clamp-4 overflow-hidden line-clamp-4";
     descriptionParagraph.textContent = `"${bid.listing.description}"`;
 
     const bottomDiv = document.createElement("div");

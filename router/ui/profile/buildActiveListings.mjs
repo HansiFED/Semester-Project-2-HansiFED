@@ -58,13 +58,14 @@ export function buildActiveListings(activeListings, pfp, userName) {
 
     // Create the title
     const titleElement = document.createElement("h4");
-    titleElement.className = "listingTitle text-lg mt-5";
+    titleElement.className =
+      "listingTitle text-lg mt-5 overflow-hidden line-clamp-2";
     titleElement.textContent = listing.title;
 
     // Create the description
     const descriptionParagraph = document.createElement("p");
     descriptionParagraph.className =
-      "listingDesc mt-5 overflow-hidden line-clamp-4";
+      "listingDesc mt-5 overflow-hidden line-clamp-4 overflow-hidden line-clamp-4";
     descriptionParagraph.textContent = `"${listing.description}"`;
 
     // Create the auction ending section wrapped in a div

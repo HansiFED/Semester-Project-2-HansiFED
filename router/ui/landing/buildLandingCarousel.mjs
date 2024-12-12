@@ -51,6 +51,10 @@ function renderCarouselItem(index) {
 
   const endsAt = document.getElementById("endingTimeCarousel");
   endsAt.innerText = listingRemainingIsoCalculator(item.endsAt);
+
+  setInterval(() => {
+    endsAt.textContent = listingRemainingIsoCalculator(item.endsAt);
+  }, 1000);
 }
 
 function setupNavigation() {
