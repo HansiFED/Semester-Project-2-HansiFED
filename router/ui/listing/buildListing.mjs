@@ -24,9 +24,9 @@ export async function buildListing() {
   const userPfpDomElement = document.getElementById("userPfp");
   const userNameDomElement = document.getElementById("userName");
   const auctionEndingDomElement = document.getElementById("endsAt");
-  const biddersWrapperDomElement = document.getElementById(
-    "currentBiddersWrapper",
-  );
+  // const biddersWrapperDomElement = document.getElementById(
+  //   "currentBiddersWrapper",
+  // );
 
   if (!accessToken) {
     document.getElementById("placeBidContainer").classList.add("hidden");
@@ -74,7 +74,7 @@ export async function buildListing() {
 
       const creditsImageIcon = document.createElement("img");
       creditsImageIcon.alt = "amount of credits icon";
-      creditsImageIcon.setAttribute("src", "/src/Media/coinsIconLightMode.svg");
+      creditsImageIcon.setAttribute("src", "/Media/coinsIconLightMode.svg");
 
       const timeSinceBidPElement = document.createElement("p");
       timeSinceBidPElement.classList.add("ml-auto");
