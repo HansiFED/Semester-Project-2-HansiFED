@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="module" src="/app.js"></script>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
 
-  <body class="flex flex-col min-h-screen font-inriaserif">
+  <body
+    class="flex text-black bg-lightModeBackground dark:bg-darkModeBackground dark:text-white flex-col min-h-screen font-inriaserif"
+  >
     <header
       id="header"
-      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between items-center p-6"
+      class="sticky top-0 z-50 bg-primaryBlue dark:bg-darkModeHeader flex flex-col justify-between items-center p-6"
     >
       <section class="flex w-full justify-between items-center">
         <a href="/">
@@ -29,7 +38,7 @@
           </button>
           <div
             id="menu"
-            class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+            class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
           >
             <button id="menuClose" class="absolute top-4 right-4 p-2">
               <img
@@ -64,10 +73,10 @@
                 <a href="/" class="py-2 rounded-md">
                   <div id="homeContainer" class="flex items-center gap-3">
                     <img
-                      src="/src/Media/headerIcons/homeIcon-toggled.svg"
+                      src="/src/Media/headerIcons/homeIcon.svg"
                       alt="Home Page link"
                     />
-                    <p class="text-primaryYellow underline">Home</p>
+                    <p>Home</p>
                   </div>
                 </a>
               </li>
@@ -240,7 +249,9 @@
         </div>
       </section>
     </main>
-    <footer class="bg-primaryBlue flex justify-center py-6 mt-16">
+    <footer
+      class="bg-primaryBlue dark:bg-darkModeFooter flex justify-center py-6 mt-16"
+    >
       <p class="text-white text-xs">©2024 HansiFED</p>
     </footer>
   </body>

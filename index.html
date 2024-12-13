@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <script type="module" src="app.js"></script>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
 
   <body
@@ -136,7 +143,7 @@
         </nav>
       </section>
       <div class="w-full md:absolute md:top-[6px] md:right-32 md:w-96">
-        <form id="searchForm" action="" class="">
+        <form id="searchForm" action="" class="text-black">
           <input
             id="searchBar"
             type="text"

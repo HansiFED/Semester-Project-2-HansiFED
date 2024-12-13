@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="module" src="/app.js"></script>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
 
   <body
@@ -170,7 +177,7 @@
               <p id="currentBid" class="text-lg md:text-xl">0</p>
             </div>
           </div>
-          <div class="bg-black h-[1px] w-full"></div>
+          <div class="bg-black dark:bg-white h-[1px] w-full"></div>
         </div>
         <div class="mt-5">
           <p id="listingDesc" class="md:text-lg">
@@ -208,7 +215,7 @@
               <form id="bidForm" class="flex" action="">
                 <input
                   id="bidInput"
-                  class="border border-lightModeDarkGray rounded-lg w-32 px-3"
+                  class="border text-black border-lightModeDarkGray rounded-lg w-32 px-3"
                   type="number"
                   name="bidAmount"
                   required

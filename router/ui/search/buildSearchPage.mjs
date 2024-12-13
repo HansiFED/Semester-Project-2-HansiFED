@@ -55,7 +55,7 @@ export function buildSearch() {
     searchedListings.forEach((listing) => {
       const listingContainer = document.createElement("div");
       listingContainer.className =
-        "listingContainer flex flex-col flex-grow bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
+        "listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
       listingContainer.addEventListener("click", () => {
         window.location.href = `/pages/listing/?id=${listing.id}`;
       });
