@@ -36,7 +36,7 @@ export function buildSearch() {
 
       const userImg = document.createElement("img");
       userImg.className = "w-20 h-20 object-cover rounded-full";
-      userImg.src = `${user.avatar?.url || "/src/Media/stockPfp.jpg"}`;
+      userImg.src = `${user.avatar?.url || "/media/stockPfp.jpg"}`;
       userImg.alt = `${user.avatar.alt || "User Avatar"}`;
 
       const userName = document.createElement("p");
@@ -73,7 +73,7 @@ export function buildSearch() {
 
       const sellerImg = document.createElement("img");
       sellerImg.className = "listingPFP w-6 h-6 object-cover rounded-full";
-      sellerImg.src = listing.seller.avatar?.url || "/src/Media/stockPfp.jpg";
+      sellerImg.src = listing.seller.avatar?.url || "/media/stockPfp.jpg";
       sellerImg.alt = listing.seller.avatar?.alt || "Seller Avatar";
 
       const sellerName = document.createElement("p");
@@ -89,8 +89,7 @@ export function buildSearch() {
       listingTop.appendChild(dateElement);
 
       const listingImage = document.createElement("img");
-      listingImage.src =
-        listing.media[0]?.url || "/src/Media/placeholderImg.jpeg";
+      listingImage.src = listing.media[0]?.url || "/media/placeholderImg.jpeg";
       listingImage.className =
         "activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full";
       listingImage.alt = "Listing Image";

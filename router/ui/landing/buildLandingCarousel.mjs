@@ -30,7 +30,7 @@ function renderCarouselItem(index) {
   const item = carouselData[index];
   const media = item.media[0];
 
-  carouselListing.src = media ? media.url : "/src/Media/placeholderImg.jpeg";
+  carouselListing.src = media ? media.url : "/media/placeholderImg.jpeg";
   carouselListing.alt = media ? media.alt : "No image available";
 
   caption.querySelector("h2").textContent = item.title || "Auction Listing";
@@ -40,7 +40,7 @@ function renderCarouselItem(index) {
   const sellerAvatar = caption.querySelector("#userContainer img");
   const sellerName = caption.querySelector("#userContainer p");
 
-  sellerAvatar.src = item.seller.avatar?.url || "/src/Media/stockPfp.jpg";
+  sellerAvatar.src = item.seller.avatar?.url || "/media/stockPfp.jpg";
   sellerAvatar.alt = item.seller.avatar?.alt || "Seller avatar";
   sellerName.textContent = item.seller.name || "Unknown seller";
 

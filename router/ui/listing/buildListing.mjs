@@ -7,7 +7,7 @@ export async function buildListing() {
   const main = document.querySelector("main");
   const initialData = await fetchListing();
   const data = initialData.data;
-  const listingImage = data.media[0]?.url || "/src/Media/placeholderImg.jpeg";
+  const listingImage = data.media[0]?.url || "/media/placeholderImg.jpeg";
   const listingTitle = data.title;
   const currentBid = data.bids[data.bids.length - 1]?.amount || "0";
   const listingDesc = data.description;
@@ -74,7 +74,7 @@ export async function buildListing() {
 
       const creditsImageIcon = document.createElement("img");
       creditsImageIcon.alt = "amount of credits icon";
-      creditsImageIcon.setAttribute("src", "/src/Media/coinsIconLightMode.svg");
+      creditsImageIcon.setAttribute("src", "/media/coinsIconLightMode.svg");
 
       const timeSinceBidPElement = document.createElement("p");
       timeSinceBidPElement.classList.add("ml-auto");

@@ -47,8 +47,7 @@ export function buildActiveListings(activeListings, pfp, userName) {
     const listingImage = document.createElement("img");
     listingImage.className =
       "activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full";
-    listingImage.src =
-      listing.media[0]?.url || "/src/Media/placeholderImg.jpeg";
+    listingImage.src = listing.media[0]?.url || "/media/placeholderImg.jpeg";
     listingImage.alt = "listing image";
 
     // Create the listing info container with appropriate flex and styling

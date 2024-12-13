@@ -22,7 +22,7 @@ export function buildActiveBids(activeBids) {
 
     const profileImage = document.createElement("img");
     profileImage.className = "listingPFP w-6 h-6 object-cover rounded-full"; // Consistent with Example 1
-    profileImage.src = bid.bidder.avatar.url || "/src/Media/stockPfp.jpg";
+    profileImage.src = bid.bidder.avatar.url || "/media/stockPfp.jpg";
     profileImage.alt = "user profile photo";
 
     const userNameParagraph = document.createElement("p");
@@ -38,7 +38,7 @@ export function buildActiveBids(activeBids) {
     bidAmountText.textContent = `Current Bid: ${bid.amount}`;
 
     const coinIcon = document.createElement("img");
-    coinIcon.src = "/src/Media/coinsIconLightMode.svg";
+    coinIcon.src = "/media/coinsIconLightMode.svg";
     coinIcon.alt = "credit amount icon";
 
     bidAmountDiv.appendChild(bidAmountText);
@@ -51,8 +51,7 @@ export function buildActiveBids(activeBids) {
     const bidImage = document.createElement("img");
     bidImage.className =
       "activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full";
-    bidImage.src =
-      bid.listing.media[0]?.url || "/src/Media/placeholderImg.jpeg";
+    bidImage.src = bid.listing.media[0]?.url || "/media/placeholderImg.jpeg";
     bidImage.alt = "listing image";
 
     // Create the bid info section

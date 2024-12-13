@@ -50,7 +50,7 @@ export function buildLandingListings(listing) {
   mediaContainer.className = "w-full h-[300px] rounded-xl mt-4 overflow-hidden";
 
   const mediaImage = document.createElement("img");
-  mediaImage.src = listing.media[0]?.url || "/src/Media/placeholderImg.jpeg";
+  mediaImage.src = listing.media[0]?.url || "/media/placeholderImg.jpeg";
   mediaImage.className = "activeListingImage object-cover w-full h-full";
   mediaImage.alt = listing.media[0]?.alt || "Listing image";
 
