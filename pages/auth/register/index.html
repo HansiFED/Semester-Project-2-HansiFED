@@ -36,7 +36,7 @@
         </button>
         <div
           id="menu"
-          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
         >
           <button id="menuClose" class="absolute top-4 right-4 p-2">
             <img
@@ -46,6 +46,14 @@
           </button>
           <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
             <li class="hidden" id="creditTag">
+              <div class="flex justify-center items-center w-full mb-10">
+                <img
+                  id="userProfileImage"
+                  class="w-20 h-20 rounded-full"
+                  src="/media/stockPfp.jpg"
+                  alt="user profile picture"
+                />
+              </div>
               <a href="/" class="py-2 rounded-md">
                 <div
                   id="creditsHeaderAmountContainer"
@@ -74,10 +82,10 @@
               <a href="" id="myProfileContainer" class="py-2 rounded-md">
                 <div class="flex items-center gap-3">
                   <img
-                    src="/src/Media/headerIcons/myProfileIcon-toggled.svg"
+                    src="/src/Media/headerIcons/myProfileIcon.svg"
                     alt="Home Page link"
                   />
-                  <p class="text-primaryYellow underline">My Profile</p>
+                  <p>My Profile</p>
                 </div>
               </a>
             </li>
