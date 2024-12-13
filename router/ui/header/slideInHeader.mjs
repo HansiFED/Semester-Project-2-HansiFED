@@ -8,6 +8,18 @@ export function initHamburgerMenu() {
   const menu = document.getElementById("menu");
   const userDataRaw = myUserData;
 
+  const darkModeToggle = document.getElementById("toggleDarkMode");
+  darkModeToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    document.documentElement.classList.toggle("dark");
+    const checkLocalStorage = localStorage.getItem("theme");
+    if (!checkLocalStorage) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.removeItem("theme");
+    }
+  });
+
   console.log("userdata", userDataRaw);
 
   menu.classList.remove("hidden");

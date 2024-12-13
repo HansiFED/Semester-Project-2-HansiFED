@@ -7,10 +7,12 @@
     <script type="module" src="app.js"></script>
   </head>
 
-  <body class="flex flex-col min-h-screen font-inriaserif">
+  <body
+    class="flex text-black dark:text-white bg-lightModeWhite dark:bg-darkModeBackground flex-col min-h-screen font-inriaserif"
+  >
     <header
       id="header"
-      class="sticky top-0 z-50 bg-primaryBlue flex flex-col justify-between items-center p-6"
+      class="sticky top-0 z-50 bg-primaryBlue dark:bg-darkModeHeader flex flex-col justify-between items-center p-6"
     >
       <section class="flex w-full justify-between items-center">
         <a href="/">
@@ -29,7 +31,7 @@
           </button>
           <div
             id="menu"
-            class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+            class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
           >
             <button id="menuClose" class="absolute top-4 right-4 p-2">
               <img
@@ -47,7 +49,7 @@
                     alt="user profile picture"
                   />
                 </div>
-                <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                <a href="/" class="py-2 rounded-md">
                   <div
                     id="creditsHeaderAmountContainer"
                     class="flex items-center gap-3"
@@ -61,22 +63,18 @@
                 </a>
               </li>
               <li id="homeTag">
-                <a href="/" class="py-2 hover:bg-primaryLight rounded-md">
+                <a href="/" class="py-2 rounded-md">
                   <div id="homeContainer" class="flex items-center gap-3">
                     <img
-                      src="/src/Media/headerIcons/homeIcon-toggled.svg"
+                      src="/src/Media/headerIcons/homeIcon.svg"
                       alt="Home Page link"
                     />
-                    <p class="text-primaryYellow underline">Home</p>
+                    <p>Home</p>
                   </div>
                 </a>
               </li>
               <li class="hidden" id="profileTag">
-                <a
-                  href=""
-                  id="myProfileContainer"
-                  class="py-2 hover:bg-primaryLight rounded-md"
-                >
+                <a href="" id="myProfileContainer" class="py-2 rounded-md">
                   <div class="flex items-center gap-3">
                     <img
                       src="/src/Media/headerIcons/myProfileIcon.svg"
@@ -87,10 +85,7 @@
                 </a>
               </li>
               <li class="hidden" id="createTag">
-                <a
-                  href="/pages/create/"
-                  class="py-2 hover:bg-primaryLight rounded-md"
-                >
+                <a href="/pages/create/" class="py-2 rounded-md">
                   <div
                     id="myCreateListingContainer"
                     class="flex items-center gap-3"
@@ -104,12 +99,8 @@
                 </a>
               </li>
               <li>
-                <a
-                  id="darkModeTag"
-                  href="/"
-                  class="block py-2 hover:bg-primaryLight rounded-md"
-                >
-                  <div id="darkModeContainer" class="flex items-center gap-3">
+                <a id="toggleDarkMode" href="/" class="block py-2 rounded-md">
+                  <div class="flex items-center gap-3">
                     <img
                       src="/src/Media/headerIcons/darkModeIcon.svg"
                       alt="Home Page link"
@@ -119,11 +110,7 @@
                 </a>
               </li>
               <li id="logoutTag" class="hidden">
-                <a
-                  href="/"
-                  onclick=""
-                  class="py-2 hover:bg-primaryLight rounded-md"
-                >
+                <a href="/" onclick="" class="py-2 rounded-md">
                   <div id="logoutContainer" class="flex items-center gap-3">
                     <img
                       src="/src/Media/headerIcons/logoutIcon.svg"
@@ -134,10 +121,7 @@
                 </a>
               </li>
               <li class="" id="loginTag">
-                <a
-                  href="/pages/auth/login/"
-                  class="py-2 hover:bg-primaryLight rounded-md"
-                >
+                <a href="/pages/auth/login/" class="py-2 rounded-md">
                   <div id="logInContainer" class="flex items-center gap-3">
                     <img
                       src="/src/Media/headerIcons/logoutIcon.svg"

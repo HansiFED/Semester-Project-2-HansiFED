@@ -29,12 +29,12 @@ export default {
         darkModeBackground: "#171717",
         darkModeHeader: "#262626",
         darkModeFooter: "#262626",
-        darkModeText: "#000000",
+        darkModeText: "#FFFFFF",
         darkModeBoxes: "#333333",
         darkModeInsideSearchBar: "#413E3E",
       },
     },
   },
-  darkMode: "class", // Added dark mode support
+  darkMode: "class",
   plugins: [],
 };

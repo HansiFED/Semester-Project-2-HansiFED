@@ -11,7 +11,7 @@ export function buildActiveListings(activeListings, pfp, userName) {
     const listingDiv = document.createElement("div");
     listingDiv.id = listing.id;
     listingDiv.className =
-      "listingContainer flex flex-col flex-grow bg-lightModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
+      "listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer";
 
     // Create the top part of the listing
     const listingTopDiv = document.createElement("div");
@@ -72,7 +72,8 @@ export function buildActiveListings(activeListings, pfp, userName) {
     bottomDiv.className = "mt-auto";
 
     const separatorLine = document.createElement("div");
-    separatorLine.className = "bg-lightModeBlackText w-full h-[2px] mt-10";
+    separatorLine.className =
+      "bg-lightModeBlackText dark:bg-white w-full h-[2px] mt-10";
 
     const auctionEndingDiv = document.createElement("div");
     auctionEndingDiv.className = "flex justify-between mt-5";
