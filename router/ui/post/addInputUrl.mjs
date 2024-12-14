@@ -21,7 +21,8 @@ export function addURL() {
     urlLabel.htmlFor = `urlBox${i}`;
     urlLabel.innerHTML = `URL ${i}`;
 
-    urlBox.className = "border border-lightModeDarkGray rounded-lg py-1 px-3";
+    urlBox.className =
+      "border border-lightModeDarkGray rounded-lg py-1 px-3 text-black";
     urlBox.name = `urlBox${i}`;
     urlBox.id = `urlBox${i}`;
     urlBox.type = "url";

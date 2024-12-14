@@ -36,7 +36,7 @@
         </button>
         <div
           id="menu"
-          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue text-white transform translate-x-full transition-transform duration-300"
+          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
         >
           <button id="menuClose" class="absolute top-4 right-4 p-2">
             <img
@@ -96,10 +96,10 @@
                   class="flex items-center gap-3"
                 >
                   <img
-                    src="/src/Media/headerIcons/createListingIcon-toggled.svg"
+                    src="/src/Media/headerIcons/createListingIcon.svg"
                     alt="Home Page link"
                   />
-                  <p class="text-primaryYellow underline">Create a Listing</p>
+                  <p class="">Create a Listing</p>
                 </div>
               </a>
             </li>
@@ -107,7 +107,7 @@
               <a id="toggleDarkMode" href="/" class="block py-2 rounded-md">
                 <div class="flex items-center gap-3">
                   <img
-                    src="/src/Media/headerIcons/darkModeIcon.svg"
+                    src="/media/darkModeIcon.svg"
                     id="darkModeIcon"
                     alt="Home Page link"
                   />
@@ -144,11 +144,9 @@
     <main class="flex flex-col gap-20 w-[80%] max-w-[800px] self-center">
       <section id="listingTopWrapper" class="flex flex-col mt-20">
         <h1 class="text-center">Create Listing</h1>
-        <img
-          class="w-full max-w-[260px] self-center mt-4"
-          src="/src/Media/line-divider.svg"
-          alt="Line divider for content"
-        />
+        <div
+          class="bg-lightModeBlackText dark:bg-white w-full self-center max-w-96 h-[2px] mt-10"
+        ></div>
       </section>
       <form id="listingCreateForm" class="flex flex-col gap-10" action="">
         <section class="flex flex-col gap-2" id="listingTitle">
@@ -182,7 +180,7 @@
         <section class="flex flex-col gap-2">
           <label for="listingDesc"> Listing Description </label>
           <textarea
-            class="resize-none border border-lightModeDarkGray rounded-lg py-1 px-3"
+            class="resize-none border text-black border-lightModeDarkGray rounded-lg py-1 px-3"
             type="text"
             name="listingDesc"
             id="listingDesc"
@@ -212,7 +210,7 @@
         </section>
         <button
           id="createListingButton"
-          class="bg-primaryYellow mt-10 py-3 px-16 rounded-lg text-lg hover:scale-[1.02] transition"
+          class="bg-primaryYellow text-black mt-10 py-3 px-16 rounded-lg text-lg hover:scale-[1.02] transition"
           type="submit"
         >
           Create Listing
@@ -225,7 +223,9 @@
       ></p>
       <div id="loader" class="loader hidden self-center"></div>
     </main>
-    <footer class="bg-primaryBlue flex justify-center py-6 mt-16">
+    <footer
+      class="bg-primaryBlue dark:bg-darkModeFooter flex justify-center py-6 mt-16"
+    >
       <p class="text-white text-xs">©2024 HansiFED</p>
     </footer>
   </body>

@@ -29,11 +29,11 @@ export function setIcons() {
     }
   } else if (!theme) {
     if (bidHammer) {
-      bidHammer.src = "/src/Media/auctionhammer.svg";
+      bidHammer.src = "/media/auctionhammer.svg";
     }
 
     if (darkModeIcon) {
-      darkModeIcon.src = "/src/Media/headerIcons/darkModeIcon.svg";
+      darkModeIcon.src = "/media/darkModeIcon.svg";
     }
 
     if (darkModeText) {
@@ -46,7 +46,7 @@ export function setIcons() {
       });
     }
     if (editUserIcon) {
-      editUserIcon.src = "/src/Media/editUserIcon.svg";
+      editUserIcon.src = "/media/editUserIcon.svg";
     }
   }
 }
