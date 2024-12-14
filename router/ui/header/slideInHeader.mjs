@@ -1,6 +1,7 @@
 import { myUserData, myUserName } from "../../../API/constants.mjs";
 import { isLoggedIn } from "../../../src/Utilities/authguard.mjs";
 import { logout } from "../../../src/Utilities/logout.mjs";
+import { setIcons } from "../../../src/Utilities/toggleIcons.mjs";
 
 export function initHamburgerMenu() {
   const menuToggle = document.getElementById("menuToggle");
@@ -18,6 +19,7 @@ export function initHamburgerMenu() {
     } else {
       localStorage.removeItem("theme");
     }
+    setIcons();
   });
 
   console.log("userdata", userDataRaw);

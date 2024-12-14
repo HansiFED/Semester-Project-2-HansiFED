@@ -74,7 +74,11 @@ export async function buildListing() {
 
       const creditsImageIcon = document.createElement("img");
       creditsImageIcon.alt = "amount of credits icon";
-      creditsImageIcon.setAttribute("src", "/media/coinsIconLightMode.svg");
+      creditsImageIcon.src =
+        localStorage.getItem("theme") === "dark"
+          ? "/media/coinsIconDarkMode.svg"
+          : "/media/coinsIconLightMode.svg";
+      creditsImageIcon.classList.add("creditIcon");
 
       const timeSinceBidPElement = document.createElement("p");
       timeSinceBidPElement.classList.add("ml-auto");

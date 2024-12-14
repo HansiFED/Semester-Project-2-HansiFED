@@ -110,9 +110,10 @@
                   <div class="flex items-center gap-3">
                     <img
                       src="/src/Media/headerIcons/darkModeIcon.svg"
+                      id="darkModeIcon"
                       alt="Home Page link"
                     />
-                    <p>Dark Mode</p>
+                    <p id="darkModeText">Dark Mode</p>
                   </div>
                 </a>
               </li>
@@ -264,7 +265,9 @@
         </div>
       </section>
     </main>
-    <footer class="bg-primaryBlue flex justify-center py-6">
+    <footer
+      class="bg-primaryBlue dark:bg-darkModeFooter flex justify-center py-6"
+    >
       <p class="text-white text-xs">©2024 HansiFED</p>
     </footer>
   </body>

@@ -38,8 +38,12 @@ export function buildActiveBids(activeBids) {
     bidAmountText.textContent = `Current Bid: ${bid.amount}`;
 
     const coinIcon = document.createElement("img");
-    coinIcon.src = "/media/coinsIconLightMode.svg";
+    coinIcon.src =
+      localStorage.getItem("theme") === "dark"
+        ? "/media/coinsIconDarkMode.svg"
+        : "/media/coinsIconLightMode.svg";
     coinIcon.alt = "credit amount icon";
+    coinIcon.classList.add("creditIcon");
 
     bidAmountDiv.appendChild(bidAmountText);
     bidAmountDiv.appendChild(coinIcon);

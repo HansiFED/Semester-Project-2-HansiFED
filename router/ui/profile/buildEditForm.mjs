@@ -17,7 +17,6 @@ export async function buildEditForm() {
     overlay.classList.remove("opacity-100", "pointer-events-auto");
     overlay.classList.add("opacity-0", "pointer-events-none");
     overlay.querySelector("#formContent").classList.add("scale-95");
-
     setTimeout(() => {
       editUserButton.disabled = false;
     }, 300);

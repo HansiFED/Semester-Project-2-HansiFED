@@ -108,9 +108,10 @@
                 <div class="flex items-center gap-3">
                   <img
                     src="/src/Media/headerIcons/darkModeIcon.svg"
+                    id="darkModeIcon"
                     alt="Home Page link"
                   />
-                  <p>Dark Mode</p>
+                  <p id="darkModeText">Dark Mode</p>
                 </div>
               </a>
             </li>
@@ -173,7 +174,11 @@
           >
             <h1 id="listingTitle">Listing Title</h1>
             <div class="flex items-center gap-2">
-              <img src="/media/coinsIconLightMode.svg" alt="" />
+              <img
+                class="creditIcon"
+                src="/media/coinsIconLightMode.svg"
+                alt=""
+              />
               <p id="currentBid" class="text-lg md:text-xl">0</p>
             </div>
           </div>
@@ -222,7 +227,7 @@
                 />
                 <img
                   src="/media/coinsIconLightMode.svg"
-                  class="ml-4"
+                  class="ml-4 creditIcon"
                   alt="bid amount icon"
                 />
                 <button
@@ -255,6 +260,7 @@
         <div class="flex gap-4">
           <h2 class="text-lg">Current Bidders</h2>
           <img
+            id="bidHammer"
             class="w-7"
             src="/src/Media/auctionhammer.svg"
             alt="auction hammer icon"

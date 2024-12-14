@@ -1,4 +1,5 @@
 import { authCheck } from "../../src/Utilities/authguard.mjs";
+import { setIcons } from "../../src/Utilities/toggleIcons.mjs";
 
 import { setHeaderCredits } from "../ui/header/setHeaderCredits.mjs";
 import { initHamburgerMenu } from "../ui/header/slideInHeader.mjs";
@@ -20,6 +21,8 @@ initHamburgerMenu();
 setHeaderCredits();
 
 onBuild(userName);
+
+setIcons();
 
 document
   .getElementById("editUserIcon")
