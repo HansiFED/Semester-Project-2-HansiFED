@@ -7,7 +7,5 @@ export async function onLogin(event) {
 
   const loggedInUserData = Object.fromEntries(new FormData(form));
 
-  console.log(loggedInUserData);
-
   await login(loggedInUserData);
 }

@@ -15,9 +15,6 @@ export async function onSearch(event) {
     const userSearchData = await userSearch(userInput);
     const listingSearchData = await listingSearch(userInput);
 
-    console.log("User Search Data:", userSearchData);
-    console.log("Listing Search Data:", listingSearchData);
-
     localStorage.setItem("userSearchData", JSON.stringify(userSearchData));
     localStorage.setItem(
       "listingSearchData",

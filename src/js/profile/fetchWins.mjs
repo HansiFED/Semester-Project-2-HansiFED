@@ -13,8 +13,6 @@ export async function fetchWins(username) {
 
     const result = await response.json();
 
-    console.log("listing wins data", result);
-
     return result;
   } catch (err) {
     throw err;

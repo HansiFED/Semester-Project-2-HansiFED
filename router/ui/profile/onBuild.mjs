@@ -38,5 +38,4 @@ export async function onBuild(username) {
   profileCheck();
 
   main.classList.remove("animate-pulse");
-  console.log(userListings);
 }

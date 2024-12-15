@@ -13,9 +13,6 @@ export function buildSearch() {
 
   const searchKeyWord = localStorage.getItem("searchKeyWord");
 
-  console.log(searchedUsers, searchedListings);
-  console.log("Type:", typeof searchedUsers);
-
   const domSearchHeader = document.getElementById("searchHeader");
   domSearchHeader.innerHTML = `Showing search result(s) for: <i> ${searchKeyWord} </i>`;
 

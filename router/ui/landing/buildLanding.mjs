@@ -10,9 +10,6 @@ export async function buildLanding() {
   const carouselData = carouselRawData.data;
   const pageListings = pageListingsRawData.data;
 
-  console.log("carouselData", carouselData);
-  console.log("pageListings", pageListings);
-
   pageListings.forEach((listing) => {
     buildLandingListings(listing);
   });

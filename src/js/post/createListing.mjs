@@ -2,8 +2,6 @@ import { API_LISTINGS_BASE } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function createListing(body) {
-  console.log("body", body);
-
   const userError = document.getElementById("userError");
   const loader = document.getElementById("loader");
   const createListingButton = document.getElementById("createListingButton");
@@ -16,8 +14,6 @@ export async function createListing(body) {
     });
 
     const data = await response.json();
-
-    console.log(data);
 
     if (!response.ok) {
       userError.style.display = "block";
@@ -32,7 +28,6 @@ export async function createListing(body) {
 
     return data;
   } catch (error) {
-    console.log("error creating listing", error);
     throw error;
   }
 }

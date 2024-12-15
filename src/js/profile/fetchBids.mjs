@@ -13,8 +13,6 @@ export async function fetchBids(username) {
 
     const result = await response.json();
 
-    console.log("listing bids data", result);
-
     return result;
   } catch (err) {
     throw err;
