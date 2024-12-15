@@ -3,7 +3,7 @@ export function setIcons() {
   const creditIcons = document.querySelectorAll(".creditIcon");
   const editUserIcon = document.getElementById("editUserIcon");
   const darkModeIcon = document.getElementById("darkModeIcon");
-  const darkModeText = document.getElementById("darkModeText");
+
   const bidHammer = document.getElementById("bidHammer");
 
   if (theme === "dark") {
@@ -13,10 +13,6 @@ export function setIcons() {
 
     if (darkModeIcon) {
       darkModeIcon.src = "/media/darkModeOn.svg";
-    }
-
-    if (darkModeText) {
-      darkModeText.classList.add("text-primaryYellow");
     }
 
     if (creditIcons) {
@@ -34,10 +30,6 @@ export function setIcons() {
 
     if (darkModeIcon) {
       darkModeIcon.src = "/media/darkModeIcon.svg";
-    }
-
-    if (darkModeText) {
-      darkModeText.className = "";
     }
 
     if (creditIcons) {
