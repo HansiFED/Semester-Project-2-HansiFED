@@ -19,6 +19,7 @@ export async function createListing(body) {
       userError.style.display = "block";
       userError.innerHTML = `${data.errors[0].message}`;
     } else if (response.ok) {
+      userError.innerText = "";
       createListingButton.classList.add("animate-pulse");
       loader.classList.remove("hidden");
       setTimeout(() => {

@@ -12,6 +12,7 @@ export async function editUser(body) {
     const result = await response.json();
 
     if (response.ok) {
+      document.getElementById("userFeedback").innerText = "";
       window.location.reload();
       localStorage.setItem("myUserData", JSON.stringify(result));
     }

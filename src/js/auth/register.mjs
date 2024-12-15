@@ -25,6 +25,7 @@ export async function registerUser({ name, email, password }) {
       userError.style.display = "block";
       userError.innerHTML = `${result.errors[0].message}`;
     } else if (response.ok) {
+      userError.innerText = "";
       userSuccess.style.display = "block";
       userSuccess.innerHTML = `User was created successfully, logging in...`;
       setTimeout(() => {
