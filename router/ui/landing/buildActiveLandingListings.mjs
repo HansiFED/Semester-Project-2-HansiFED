@@ -98,7 +98,8 @@ export function buildLandingListings(listing) {
   bottomDiv.className = "mt-auto";
 
   const lineElement = document.createElement("div");
-  lineElement.className = "bg-lightModeBlackText w-full h-[2px] mt-10";
+  lineElement.className =
+    "bg-lightModeBlackText w-full dark:bg-white h-[2px] mt-10";
 
   bottomDiv.appendChild(lineElement);
   bottomDiv.appendChild(auctionEndingContainer);
