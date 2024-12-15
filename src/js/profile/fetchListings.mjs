@@ -13,10 +13,8 @@ export async function fetchListings(username) {
 
     const result = await response.json();
 
-    console.log("listing data", result);
-
     return result;
   } catch (err) {
-    throw err;
+    console.error("Error in fetchListings function:", err);
   }
 }

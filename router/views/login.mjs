@@ -8,6 +8,4 @@ setIcons();
 
 const form = document.forms.loginForm;
 
-console.log(form);
-
 form.addEventListener("submit", onLogin);

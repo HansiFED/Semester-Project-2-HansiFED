@@ -5,13 +5,10 @@ export async function placeBid(event) {
   event.preventDefault();
   if (accessToken) {
     const bidAmount = document.getElementById("bidInput").value;
-    console.log("bidamount", bidAmount);
 
     const body = JSON.stringify({
       amount: parseInt(bidAmount),
     });
-
-    console.log(body);
 
     const postUrl = window.location.search;
 
@@ -33,11 +30,9 @@ export async function placeBid(event) {
 
     if (!response.ok) {
       document.getElementById("errorMessage").classList.remove("hidden");
-      console.log(data.errors[0].message);
+
       document.getElementById("errorMessage").innerText =
         `${data.errors[0].message}`;
     }
-
-    console.log("data", data);
   }
 }

@@ -22,8 +22,6 @@ export function initHamburgerMenu() {
     setIcons();
   });
 
-  console.log("userdata", userDataRaw);
-
   menu.classList.remove("hidden");
 
   const myProfileButton = document.getElementById("myProfileContainer");

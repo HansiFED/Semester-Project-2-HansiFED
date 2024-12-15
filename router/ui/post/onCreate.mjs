@@ -33,7 +33,5 @@ export async function onCreate(event) {
 
   const listingBodyFormatted = JSON.stringify(listingBody);
 
-  console.log(listingBody);
-
   await createListing(listingBodyFormatted);
 }

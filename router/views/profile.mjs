@@ -14,8 +14,6 @@ const params = new URLSearchParams(queryString);
 
 const userName = params.get("username");
 
-console.log(userName);
-
 initHamburgerMenu();
 
 setHeaderCredits();

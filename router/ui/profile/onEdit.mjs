@@ -9,8 +9,6 @@ export async function onEdit(event) {
 
   const userData = userDataRaw.data;
 
-  console.log(userData);
-
   const userURL =
     document.getElementById("bannerUrl")?.value || userData.banner.url;
   const userPfp =

@@ -16,8 +16,6 @@ export async function login({ email, password }) {
 
     const data = await response.json();
 
-    console.log(data);
-
     if (!response.ok) {
       document.getElementById("userError").classList.remove("hidden");
       document.getElementById("userError").innerHTML =
@@ -31,6 +29,6 @@ export async function login({ email, password }) {
       window.location.href = "/";
     }
   } catch (error) {
-    alert(error);
+    console.error("Error in login function:", error);
   }
 }

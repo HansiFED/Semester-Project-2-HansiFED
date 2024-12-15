@@ -2,8 +2,6 @@ import { API_AUCTION_EDIT_PROFILE } from "../../../API/constants.mjs";
 import { headers } from "../../Utilities/API/headers.mjs";
 
 export async function editUser(body) {
-  console.log(body);
-
   try {
     const response = await fetch(API_AUCTION_EDIT_PROFILE, {
       method: "PUT",
@@ -13,9 +11,8 @@ export async function editUser(body) {
 
     const result = await response.json();
 
-    console.log(result);
-
     if (response.ok) {
+      document.getElementById("userFeedback").innerText = "";
       window.location.reload();
       localStorage.setItem("myUserData", JSON.stringify(result));
     }
@@ -25,6 +22,6 @@ export async function editUser(body) {
         result.errors[0].message;
     }
   } catch (error) {
-    console.log(error);
+    console.error("Error during the API request:", error);
   }
 }
