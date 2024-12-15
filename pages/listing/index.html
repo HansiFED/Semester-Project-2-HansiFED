@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bidly - Listing Page</title>
+    <meta
+      name="description"
+      content="Listing page for users of Bidly the auction site!"
+    />
+    <meta name="author" content="HansiFED" />
+    <link
+      rel="shortcut icon"
+      href="/favicons/favicon.svg"
+      type="image/x-icon"
+    />
+    <script type="module" src="/app.js"></script>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+
+  <body
+    class="flex text-black bg-lightModeBackground dark:bg-darkModeBackground dark:text-white flex-col min-h-screen justify-between font-inriaserif"
+  >
+    <header
+      class="bg-primaryBlue flex justify-between dark:bg-darkModeHeader p-6 items-center sticky top-0 z-50"
+    >
+      <a href="/">
+        <img
+          src="/src/Media/site-logo.svg"
+          alt="Bidly site logo"
+          class="hover:scale-105 transition"
+      /></a>
+      <nav>
+        <button id="menuToggle">
+          <img
+            id="hamburger-icon"
+            src="/src/Media/hamburger-icon.svg"
+            alt="Toggle sidebar menu button"
+          />
+        </button>
+        <div
+          id="menu"
+          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
+        >
+          <button id="menuClose" class="absolute top-4 right-4 p-2">
+            <img
+              src="/src/Media/headerIcons/hamburger-icon-toggled.svg"
+              alt="Close"
+            />
+          </button>
+          <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
+            <li class="hidden" id="creditTag">
+              <div class="flex justify-center items-center w-full mb-10">
+                <img
+                  id="userProfileImage"
+                  class="w-20 h-20 rounded-full object-cover"
+                  src="/media/stockPfp.jpg"
+                  alt="user profile picture"
+                />
+              </div>
+              <a href="/" class="py-2 rounded-md">
+                <div
+                  id="creditsHeaderAmountContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/creditsHeaderIcon.svg"
+                    alt="Credits Amount"
+                  />
+                  <p id="creditsHeaderAmount"></p>
+                </div>
+              </a>
+            </li>
+            <li id="homeTag">
+              <a href="/" class="py-2 rounded-md">
+                <div id="homeContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/homeIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Home</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="profileTag">
+              <a href="" id="myProfileContainer" class="py-2 rounded-md">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/myProfileIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>My Profile</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="createTag">
+              <a href="/pages/create/" class="py-2 rounded-md">
+                <div
+                  id="myCreateListingContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/createListingIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Create a Listing</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a id="toggleDarkMode" href="/" class="block py-2 rounded-md">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/media/darkModeIcon.svg"
+                    id="darkModeIcon"
+                    alt="Home Page link"
+                  />
+                  <p
+                    id="darkModeText"
+                    class="text-white dark:text-primaryYellow"
+                  >
+                    Dark Mode
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li id="logoutTag" class="hidden">
+              <a href="/" onclick="" class="py-2 rounded-md">
+                <div id="logoutContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Logout</p>
+                </div>
+              </a>
+            </li>
+            <li class="" id="loginTag">
+              <a href="/pages/auth/login/" class="py-2 rounded-md">
+                <div id="logInContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Login</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="w-[80%] self-center flex-grow animate-pulse max-w-[1000px]">
+      <section id="listingInfoWrapper" class="relative">
+        <div>
+          <img
+            id="listingImage"
+            class="w-full h-[385px] mt-10 object-cover rounded-xl transition-transform duration-500 ease-in-out opacity-100 lg:h-[500px]"
+            src="/media/placeholderImg.jpeg"
+            alt="placeholder image"
+          />
+        </div>
+        <div
+          id="buttons"
+          class="hidden px-4 w-full flex z-20 justify-between absolute top-1/3"
+        >
+          <img
+            id="previousButton"
+            src="/src/Media/arrowLeft.svg"
+            class="w-10 hover:animate-pulse cursor-pointer"
+            alt="previous listing"
+          />
+          <img
+            id="nextButton"
+            src="/src/Media/arrowRight.svg"
+            class="w-10 hover:animate-pulse cursor-pointer"
+            alt="next listing"
+          />
+        </div>
+        <div class="flex flex-col">
+          <div
+            class="flex justify-between items-center mb-4 mt-4 flex-wrap gap-4"
+          >
+            <h1 id="listingTitle">Listing Title</h1>
+            <div class="flex items-center gap-2">
+              <img
+                class="creditIcon"
+                src="/media/coinsIconLightMode.svg"
+                alt=""
+              />
+              <p id="currentBid" class="text-lg md:text-xl">0</p>
+            </div>
+          </div>
+          <div class="bg-black dark:bg-white h-[1px] w-full"></div>
+        </div>
+        <div class="mt-5">
+          <p id="listingDesc" class="md:text-lg">
+            "There is no one who loves pain itself, who seeks after it and wants
+            to have it, simply because it is pain... There is no one who loves
+            pain itself, who seeks after it and wants to have it, simply because
+            it is pain..."
+          </p>
+        </div>
+        <div class="flex justify-between mt-5">
+          <div id="userInfo" class="flex items-center text-xs sm:text-base">
+            <img
+              id="userPfp"
+              class="w-6 h-6 object-cover rounded-full"
+              src="/media/stockPfp.jpg"
+              alt=""
+            />
+            <p class="ml-3" id="userName">username</p>
+          </div>
+          <div class="flex text-xs items-center gap-3 sm:text-base">
+            <p>Auction Ending:</p>
+            <p class="auctionEndingValue font-inriasans font-light" id="endsAt">
+              9d 23h 10m 42s
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="placeBidWrapper" class="mt-12">
+        <div id="placeBidContainer" class="flex flex-col">
+          <label class="sm:text-lg lg:text-xl" for="bidAmount">
+            Place a bid:
+          </label>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-3">
+              <form id="bidForm" class="flex" action="">
+                <input
+                  id="bidInput"
+                  class="border text-black border-lightModeDarkGray rounded-lg w-32 px-3"
+                  type="number"
+                  name="bidAmount"
+                  required
+                />
+                <img
+                  src="/media/coinsIconLightMode.svg"
+                  class="ml-4 creditIcon"
+                  alt="bid amount icon"
+                />
+                <button
+                  class="bg-primaryBlue transition duration-150 hover:scale-[102%] text-white px-7 py-1 ml-5 rounded-lg text-sm sm:text-lg lg:text-xl"
+                >
+                  Place Bid
+                </button>
+              </form>
+            </div>
+          </div>
+          <p id="errorMessage" class="text-red-700 mt-5 hidden"></p>
+        </div>
+        <div id="loginToPlaceBidContainer" class="flex flex-col hidden">
+          <p class="text-lg">Want to place / see bid(s)?</p>
+          <div class="flex items-center gap-4 mt-3">
+            <a
+              href="/pages/auth/login/"
+              class="bg-primaryYellow text-black text-base px-7 rounded-lg"
+            >
+              Login
+            </a>
+            <p>
+              or register
+              <a class="underline" href="/pages/auth/register/"> here </a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="currentBiddersWrapper" class="mt-12 hidden">
+        <div class="flex gap-4">
+          <h2 class="text-lg">Current Bidders</h2>
+          <img
+            id="bidHammer"
+            class="w-7"
+            src="/media/auctionhammer.svg"
+            alt="auction hammer icon"
+          />
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-primaryBlue dark:bg-darkModeFooter flex justify-center py-6 mt-16"
+    >
+      <p class="text-white text-xs">©2024 HansiFED</p>
+    </footer>
+  </body>
+</html>

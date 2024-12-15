@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/app.js"></script>
+    <title>Bidly - Profile Page</title>
+    <meta
+      name="description"
+      content="Profile-page for users of Bidly the auction site!"
+    />
+    <meta name="author" content="HansiFED" />
+    <link
+      rel="shortcut icon"
+      href="/favicons/favicon.svg"
+      type="image/x-icon"
+    />
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+
+  <body
+    class="flex flex-col text-black bg-lightModeBackground dark:bg-darkModeBackground dark:text-white min-h-screen font-inriaserif"
+  >
+    <header
+      class="bg-primaryBlue flex justify-between dark:bg-darkModeHeader p-6 items-center sticky top-0 z-50"
+    >
+      <a href="/">
+        <img
+          src="/src/Media/site-logo.svg"
+          alt="Bidly site logo"
+          class="hover:scale-105 transition"
+      /></a>
+      <nav>
+        <button id="menuToggle">
+          <img
+            id="hamburger-icon"
+            src="/src/Media/hamburger-icon.svg"
+            alt="Toggle sidebar menu button"
+          />
+        </button>
+        <div
+          id="menu"
+          class="hidden fixed z-30 top-0 right-0 h-full w-64 bg-primaryBlue dark:bg-darkModeHeader text-white transform translate-x-full transition-transform duration-300"
+        >
+          <button id="menuClose" class="absolute top-4 right-4 p-2">
+            <img
+              src="/src/Media/headerIcons/hamburger-icon-toggled.svg"
+              alt="Close"
+            />
+          </button>
+          <ul class="flex flex-col gap-5 mt-32 space-y-4 px-6 text-xl">
+            <li class="hidden" id="creditTag">
+              <div class="flex justify-center items-center w-full mb-10">
+                <img
+                  id="userProfileImage"
+                  class="w-20 h-20 rounded-full object-cover"
+                  src="/media/stockPfp.jpg"
+                  alt="user profile picture"
+                />
+              </div>
+              <a href="/" class="py-2 rounded-md">
+                <div
+                  id="creditsHeaderAmountContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/creditsHeaderIcon.svg"
+                    alt="Credits Amount"
+                  />
+                  <p id="creditsHeaderAmount"></p>
+                </div>
+              </a>
+            </li>
+            <li id="homeTag">
+              <a href="/" class="py-2 rounded-md">
+                <div id="homeContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/homeIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Home</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="profileTag">
+              <a href="" id="myProfileContainer" class="py-2 rounded-md">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/myProfileIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>My Profile</p>
+                </div>
+              </a>
+            </li>
+            <li class="hidden" id="createTag">
+              <a href="/pages/create/" class="py-2 rounded-md">
+                <div
+                  id="myCreateListingContainer"
+                  class="flex items-center gap-3"
+                >
+                  <img
+                    src="/src/Media/headerIcons/createListingIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Create a Listing</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a id="toggleDarkMode" href="/" class="block py-2 rounded-md">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/media/darkModeIcon.svg"
+                    id="darkModeIcon"
+                    alt="Home Page link"
+                  />
+                  <p
+                    id="darkModeText"
+                    class="text-white dark:text-primaryYellow"
+                  >
+                    Dark Mode
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li id="logoutTag" class="hidden">
+              <a href="/" onclick="" class="py-2 rounded-md">
+                <div id="logoutContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Logout</p>
+                </div>
+              </a>
+            </li>
+            <li class="" id="loginTag">
+              <a href="/pages/auth/login/" class="py-2 rounded-md">
+                <div id="logInContainer" class="flex items-center gap-3">
+                  <img
+                    src="/src/Media/headerIcons/logoutIcon.svg"
+                    alt="Home Page link"
+                  />
+                  <p>Login</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main
+      class="flex flex-col flex-grow gap-10 self-center w-screen animate-pulse"
+    >
+      <section id="profileBannerWrapper" class="relative">
+        <img
+          src="/media/placeholderImg.jpeg"
+          id="profileBanner"
+          class="bg-[#757575] w-screen h-64 object-cover md:h-60 lg:h-96"
+          alt=""
+        />
+      </section>
+      <section id="profileWrapper" class="flex flex-col px-5 mb-10 lg:flex-row">
+        <div class="lg:w-96 lg:ml-10">
+          <div
+            id="imageNameAndCoinsContainer"
+            class="flex items-center h-14 relative top-[-30px] lg:size-fit lg:top-[-60px]"
+          >
+            <div
+              id="pfpContainer"
+              class="w-32 h-32 lg:w-44 lg:h-w-44 object-cover relative top-[-30px]"
+            >
+              <img
+                id="pfp"
+                class="rounded-full object-cover w-32 h-32 lg:w-44 lg:h-44"
+                src="/media/stockPfp.jpg"
+                alt="profile picture template"
+              />
+            </div>
+            <div
+              id="nameAndCoinsWrapper"
+              class="ml-5 flex justify-between flex-wrap flex-grow lg:flex-col"
+            >
+              <h3 id="userName" class="text-xl">username</h3>
+              <div class="flex gap-2 size-fit lg:mt-2" id="coinAmountContainer">
+                <img
+                  class="creditIcon"
+                  src="/media/coinsIconLightMode.svg"
+                  alt="amount of coins"
+                />
+                <p id="userCredits">1000</p>
+              </div>
+            </div>
+          </div>
+          <div id="userBioContainer" class="max-w-[90%]">
+            <p id="userBio">
+              "There is no one who loves pain itself, who seeks after it and
+              wants to have it, simply because it is pain..."
+            </p>
+          </div>
+          <div id="editUserWrapper" class="w-full">
+            <img
+              id="editUserIcon"
+              class="ml-auto w-7 hidden cursor-pointer transition"
+              src="/media/editUserIcon.svg"
+              alt="edit user Icon"
+            />
+            <div id="editUserFormWrapper" class="relative hidden z-50">
+              <div
+                id="userForm"
+                class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+              >
+                <div
+                  class="bg-lightModeProfileButtons text-white p-6 rounded-lg shadow-lg w-80 font-serif transform scale-95 transition-transform duration-300"
+                  id="formContent"
+                >
+                  <form id="editSubmitForm">
+                    <div class="mb-4">
+                      <label
+                        for="bannerUrl"
+                        class="block text-sm font-medium mb-1"
+                        >Banner URL</label
+                      >
+                      <input
+                        id="bannerUrl"
+                        type="url"
+                        class="w-full p-2 rounded-lg bg-[#505050] focus:outline-none focus:ring focus:ring-yellow-400 font-serif z-[100]"
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label
+                        for="profilePictureUrl"
+                        class="block text-sm font-medium mb-1"
+                        >Profile Picture URL</label
+                      >
+                      <input
+                        id="profilePictureUrl"
+                        type="url"
+                        class="w-full p-2 rounded-lg bg-[#505050] border border-gray-600 focus:outline-none focus:ring focus:ring-yellow-400 font-serif"
+                      />
+                    </div>
+                    <div class="mb-6">
+                      <label for="bio" class="block text-sm font-medium mb-1"
+                        >Bio</label
+                      >
+                      <textarea
+                        id="bio"
+                        rows="4"
+                        class="w-full resize-none p-2 rounded-lg bg-[#505050] border border-gray-600 focus:outline-none focus:ring focus:ring-yellow-400 font-serif"
+                      ></textarea>
+                    </div>
+                    <p id="userFeedback" class="text-center mb-5"></p>
+                    <button
+                      type="submit"
+                      class="w-full bg-yellow-500 text-black p-2 rounded-lg hover:bg-yellow-600 font-serif"
+                    >
+                      Update Profile
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-lightModeBlackText dark:bg-white w-full h-[2px] mt-7"
+            ></div>
+          </div>
+          <section id="pfActionButtons" class="flex flex-col mt-7 gap-7">
+            <button
+              onclick="location.href='#activeListingsHeader'"
+              id="activeListingsButton"
+              class="bg-lightModeProfileButtons text-white py-3 rounded-xl"
+            >
+              Active Listings
+            </button>
+            <button
+              onclick="location.href='#activeBidsHeader'"
+              id="activeBidsButton"
+              class="bg-lightModeProfileButtons text-white py-3 rounded-xl"
+            >
+              Active Bids
+            </button>
+            <button
+              onclick="location.href='#wonBidsHeader'"
+              id="wonBidsButton"
+              class="bg-lightModeProfileButtons text-white py-3 rounded-xl"
+            >
+              Won Bids
+            </button>
+          </section>
+        </div>
+        <div
+          class="flex flex-col lg:ml-20 overflow-scroll lg:h-screen lg:gap-10"
+        >
+          <section
+            id="activeListingsContainer"
+            class="flex flex-col lg:ml-5 mt-20 lg:mt-0"
+          >
+            <h2 id="activeListingsHeader" class="font-inriaserif text-3xl">
+              Active Listings
+            </h2>
+            <section
+              id="activeListings"
+              class="flex flex-col md:flex-row md:flex-wrap gap-6 md:w-full"
+            >
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section id="activeBidsContainer" class="mt-20 lg:mt-0 flex flex-col">
+            <h2 id="activeBidsHeader" class="font-inriaserif text-3xl">
+              Active Bids
+            </h2>
+            <section
+              id="activeBids"
+              class="flex flex-col md:flex-row md:flex-wrap gap-10 md:w-full"
+            >
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section id="wonBidsContainer" class="mt-20 lg:mt-0 flex flex-col">
+            <h2 id="wonBidsHeader" class="font-inriaserif text-3xl">
+              Won Bids
+            </h2>
+            <section
+              id="wonBids"
+              class="flex flex-col md:flex-row md:flex-wrap gap-10 md:w-full"
+            >
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listingContainer flex flex-col flex-grow bg-lightModeBoxes dark:bg-darkModeBoxes mt-8 px-4 py-4 mb-8 rounded-xl max-w-[700px] md:w-[350px] xl:max-w-[350px] lg:h-[650px] lg:w-80 lg:hover:scale-105 transition transition-300 cursor-pointer"
+              >
+                <div class="listingContainerTop flex justify-between">
+                  <div class="nameAndPicture flex items-center gap-2">
+                    <img
+                      class="listingPFP w-6 h-6 object-cover rounded-full"
+                      src="/media/stockPfp.jpg"
+                      alt="user profile photo"
+                    />
+                    <p>HansiFed</p>
+                  </div>
+                  <p class="date">21 Des 2024</p>
+                </div>
+                <img
+                  src="/media/placeholderImg.jpeg"
+                  class="activeListingImage object-cover rounded-xl mt-4 h-60 lg:h-72 w-full"
+                  alt="listing image"
+                />
+                <div
+                  class="listingInfo flex flex-col flex-grow justify-between"
+                >
+                  <h4
+                    class="listingTitle text-lg mt-5 overflow-hidden line-clamp-2"
+                  >
+                    Auction Item Listing
+                  </h4>
+                  <p class="listingDesc mt-5 overflow-hidden line-clamp-4">
+                    "There is no one who loves pain itself, who seeks after it
+                    and wants to have it, simply because it is pain..." "There
+                    is no one who loves pain itself, who seeks after it and
+                    wants to have it, simply because it is pain... "There is no
+                    one who loves pain itself, who seeks after it and wants to
+                    have it, simply because it is pain...
+                  </p>
+                  <div class="">
+                    <div
+                      class="bg-lightModeBlackText w-full h-[2px] mt-10"
+                    ></div>
+                    <div class="flex justify-between mt-5">
+                      <p>Auction Ending:</p>
+                      <p>9d 23h 10m 42s</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-primaryBlue dark:bg-darkModeFooter flex justify-center py-6 mt-16"
+    >
+      <p class="text-white text-xs">©2024 HansiFED</p>
+    </footer>
+  </body>
+</html>
