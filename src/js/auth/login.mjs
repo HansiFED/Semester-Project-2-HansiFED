@@ -29,6 +29,6 @@ export async function login({ email, password }) {
       window.location.href = "/";
     }
   } catch (error) {
-    alert(error);
+    console.error("Error in login function:", error);
   }
 }

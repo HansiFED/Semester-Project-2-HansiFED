@@ -21,6 +21,6 @@ export async function fetchListing() {
 
     return result;
   } catch (error) {
-    throw new Error(error);
+    console.error("Error in fetchListing:", error);
   }
 }

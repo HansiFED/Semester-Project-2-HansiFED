@@ -12,6 +12,6 @@ export async function fetchProfile(username) {
 
     return result;
   } catch (err) {
-    throw err;
+    console.error("Error in fetchProfile function:", err);
   }
 }

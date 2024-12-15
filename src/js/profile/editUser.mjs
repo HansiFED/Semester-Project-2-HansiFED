@@ -20,5 +20,7 @@ export async function editUser(body) {
       document.getElementById("userFeedback").innerText =
         result.errors[0].message;
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error during the API request:", error);
+  }
 }

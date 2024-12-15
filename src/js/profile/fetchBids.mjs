@@ -15,6 +15,6 @@ export async function fetchBids(username) {
 
     return result;
   } catch (err) {
-    throw err;
+    console.error("Error in fetchBids function:", err);
   }
 }

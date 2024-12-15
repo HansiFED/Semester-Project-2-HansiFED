@@ -15,6 +15,6 @@ export async function fetchListings(username) {
 
     return result;
   } catch (err) {
-    throw err;
+    console.error("Error in fetchListings function:", err);
   }
 }

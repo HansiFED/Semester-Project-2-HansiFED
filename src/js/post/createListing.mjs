@@ -28,6 +28,6 @@ export async function createListing(body) {
 
     return data;
   } catch (error) {
-    throw error;
+    console.error("Error in createListing:", error);
   }
 }
