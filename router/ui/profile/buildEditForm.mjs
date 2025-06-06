@@ -1,5 +1,17 @@
 import { onEdit } from "./onEdit.mjs";
 
+/**
+ * Displays and animates the user profile edit form.
+ *
+ * - Removes the hidden class to show the edit form wrapper.
+ * - Animates form appearance using opacity and scale CSS classes.
+ * - Disables the edit button while the form is open to prevent multiple instances.
+ * - Attaches a click listener on the overlay to close the form when clicking outside the content.
+ * - Binds the form submission event to the `onEdit` handler.
+ *
+ * @function buildEditForm
+ * @returns {void}
+ */
 export async function buildEditForm() {
   document.getElementById("editUserFormWrapper").classList.remove("hidden");
   const overlay = document.getElementById("userForm");

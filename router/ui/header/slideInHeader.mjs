@@ -3,6 +3,20 @@ import { isLoggedIn } from "../../../src/Utilities/authguard.mjs";
 import { logout } from "../../../src/Utilities/logout.mjs";
 import { setIcons } from "../../../src/Utilities/toggleIcons.mjs";
 
+/**
+ * Initializes the hamburger menu functionality and user-related UI elements.
+ *
+ * - Toggles dark mode and persists theme preference in localStorage.
+ * - Sets up event listeners for opening and closing the hamburger menu.
+ * - Handles closing the menu when clicking outside of it.
+ * - Updates UI elements based on user authentication state:
+ *   - Displays user avatar, profile, credit, create listing, and logout options when logged in.
+ *   - Hides login option when logged in, and vice versa.
+ * - Configures logout button to clear session and redirect.
+ *
+ * @function initHamburgerMenu
+ * @returns {void}
+ */
 export function initHamburgerMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const menuClose = document.getElementById("menuClose");

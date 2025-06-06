@@ -1,3 +1,12 @@
+/**
+ * Checks profile sections for content and hides empty sections and their buttons.
+ *
+ * - Targets active listings, active bids, and won bids sections.
+ * - If a section container is empty (no inner HTML), hides its wrapper and corresponding button.
+ *
+ * @function profileCheck
+ * @returns {void}
+ */
 export function profileCheck() {
   const activeListingsButton = document.getElementById("activeListingsButton");
   const activeBidsButton = document.getElementById("activeBidsButton");

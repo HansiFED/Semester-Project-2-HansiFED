@@ -1,5 +1,19 @@
 import { createListing } from "../../../src/js/post/createListing.mjs";
 
+/**
+ * Handles the submission of the create listing form.
+ *
+ * - Prevents the default form submission behavior.
+ * - Collects and formats form data including title, description, tags, end date, and media URLs.
+ * - Converts the end date to ISO format.
+ * - Triggers the `createListing` function to send the listing data to the server.
+ * - Adds a pulse animation class to the submit button for UI feedback.
+ *
+ * @async
+ * @function onCreate
+ * @param {Event} event - The form submission event.
+ * @returns {Promise<void>} Resolves after the listing creation request is made.
+ */
 export async function onCreate(event) {
   event.preventDefault();
   const formButton = document.getElementById("createListingButton");

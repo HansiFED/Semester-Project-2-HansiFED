@@ -1,5 +1,22 @@
 import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 
+/**
+ * Dynamically builds and appends listing cards for won bids to the DOM.
+ *
+ * - Clears existing content in the `#wonBids` container.
+ * - For each won bid, creates a structured listing card displaying:
+ *   - Seller's avatar and name
+ *   - Listing creation date
+ *   - Listing image with fallback
+ *   - Title and description of the listing
+ *   - Auction ending date
+ * - Adds click event to each listing card that navigates to the detailed listing page.
+ *
+ * @function buildWonBids
+ * @param {Array<Object>} wonBids - An array of listing objects representing won bids.
+ * Each listing object is expected to have properties like `id`, `seller`, `created`, `media`, `title`, `description`, and `endsAt`.
+ * @returns {void}
+ */
 export function buildWonBids(wonBids) {
   const wonBidsContainerDomElement = document.getElementById("wonBids");
 

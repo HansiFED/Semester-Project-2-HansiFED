@@ -1,5 +1,23 @@
 import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 
+/**
+ * Dynamically builds and appends active listing cards to the DOM.
+ *
+ * - Clears existing content in the `#activeListings` container.
+ * - For each active listing, creates a card displaying:
+ *   - Seller's profile picture and username.
+ *   - Listing creation date.
+ *   - Listing image with fallback.
+ *   - Title and description of the listing.
+ *   - Auction ending date.
+ * - Adds a click event listener to navigate to the detailed listing page.
+ *
+ * @function buildActiveListings
+ * @param {Array<Object>} activeListings - Array of listing objects to display.
+ * @param {string} pfp - URL of the user's profile picture.
+ * @param {string} userName - The username to display.
+ * @returns {void}
+ */
 export function buildActiveListings(activeListings, pfp, userName) {
   const activeListingsContainerDomElement =
     document.getElementById("activeListings");

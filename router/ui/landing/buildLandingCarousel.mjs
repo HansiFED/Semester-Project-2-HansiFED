@@ -4,6 +4,18 @@ import { listingRemainingIsoCalculator } from "../../../src/Utilities/listingRem
 let currentIndex = 0;
 let carouselData = [];
 
+/**
+ * Fetches landing page carousel data and initializes the carousel.
+ *
+ * - Retrieves carousel items asynchronously.
+ * - Renders the first carousel item.
+ * - Sets up navigation buttons and click navigation.
+ * - Logs errors if data fetching fails or no data is available.
+ *
+ * @async
+ * @function buildLandingCarousel
+ * @returns {Promise<void>} Resolves after carousel is initialized.
+ */
 export async function buildLandingCarousel() {
   try {
     const rawData = await fetchLandingCarousel();
@@ -21,6 +33,15 @@ export async function buildLandingCarousel() {
   }
 }
 
+/**
+ * Renders a carousel item at the specified index.
+ *
+ * Updates image, caption, seller info, and auction ending time in the DOM.
+ *
+ * @function renderCarouselItem
+ * @param {number} index - The index of the carousel item to render.
+ * @returns {void}
+ */
 function renderCarouselItem(index) {
   const carouselListing = document.querySelector(
     "#carouselListings figure img",
@@ -53,6 +74,15 @@ function renderCarouselItem(index) {
   endsAt.innerText = listingRemainingIsoCalculator(item.endsAt);
 }
 
+/**
+ * Sets up the next and previous navigation buttons for the carousel.
+ *
+ * Adds click event handlers to update the current index and re-render the carousel item.
+ * Prevents event propagation to avoid unintended parent handlers.
+ *
+ * @function setupNavigation
+ * @returns {void}
+ */
 function setupNavigation() {
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("previousButton");
@@ -76,6 +106,14 @@ function setupNavigation() {
   prevButton.addEventListener("click", stopPropagation);
 }
 
+/**
+ * Sets up click navigation on the carousel figure element.
+ *
+ * Clicking the carousel navigates to the detailed listing page of the current item.
+ *
+ * @function setupClickNavigation
+ * @returns {void}
+ */
 function setupClickNavigation() {
   const carouselFigure = document.querySelector("#carouselListings figure");
   carouselFigure.onclick = () => {

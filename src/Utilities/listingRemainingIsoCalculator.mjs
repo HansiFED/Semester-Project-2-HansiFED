@@ -1,3 +1,13 @@
+/**
+ * Calculates the remaining time from the current moment to a future ISO date.
+ *
+ * Returns the result as a formatted string like "1d 3h 15m 42s".
+ * If the target time is in the past, returns "0h 0m 0s".
+ *
+ * @function listingRemainingIsoCalculator
+ * @param {string} isoDate - An ISO-formatted future date string.
+ * @returns {string} The remaining time formatted as "Xd Xh Xm Xs".
+ */
 export function listingRemainingIsoCalculator(isoDate) {
   const targetTime = new Date(isoDate).getTime();
   const currentTime = Date.now();

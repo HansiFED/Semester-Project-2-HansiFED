@@ -1,6 +1,31 @@
 import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 import { listingRemainingIsoCalculator } from "../../../src/Utilities/listingRemainingIsoCalculator.mjs";
 
+/**
+ * Creates and appends a listing card element to the landing page listings container.
+ *
+ * - Displays seller profile info with clickable navigation to seller's profile.
+ * - Shows listing creation date, image (with fallback), title, and description.
+ * - Displays a live-updating auction ending countdown.
+ * - The entire listing card is clickable to navigate to the listing detail page.
+ *
+ * @function buildLandingListings
+ * @param {Object} listing - The listing data object.
+ * @param {string} listing.id - The unique ID of the listing.
+ * @param {Object} listing.seller - The seller's user data.
+ * @param {string} listing.seller.name - Seller's username.
+ * @param {Object} listing.seller.avatar - Seller's avatar info.
+ * @param {string} listing.seller.avatar.url - URL of seller's avatar image.
+ * @param {string} [listing.seller.avatar.alt] - Alt text for seller's avatar image.
+ * @param {string} listing.created - ISO string of listing creation date.
+ * @param {Array<Object>} listing.media - Array of media objects for the listing.
+ * @param {string} listing.media[].url - Media image URL.
+ * @param {string} [listing.media[].alt] - Alt text for the media image.
+ * @param {string} listing.title - Listing title.
+ * @param {string} listing.description - Listing description.
+ * @param {string} listing.endsAt - ISO string of auction end date/time.
+ * @returns {void}
+ */
 export function buildLandingListings(listing) {
   const auctionListingsDomElement = document.getElementById(
     "auctionListingsContainer",

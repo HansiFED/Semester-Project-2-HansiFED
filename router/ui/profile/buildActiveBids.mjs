@@ -1,5 +1,22 @@
 import { formatDate } from "../../../src/Utilities/dateFromIso.mjs";
 
+/**
+ * Builds and appends active bid cards to the DOM.
+ *
+ * - Clears existing content in the `#activeBids` container.
+ * - For each active bid, creates a card displaying:
+ *   - Bidder's avatar and name.
+ *   - Current bid amount with a themed coin icon.
+ *   - Listing image with fallback.
+ *   - Listing title and description.
+ *   - Auction ending date.
+ * - Adds a click event to navigate to the detailed listing page.
+ *
+ * @function buildActiveBids
+ * @param {Array<Object>} activeBids - Array of active bid objects.
+ * Each bid object should contain information about the bidder, amount, and the associated listing.
+ * @returns {void}
+ */
 export function buildActiveBids(activeBids) {
   const activeBidsContainerDomElement = document.getElementById("activeBids");
 

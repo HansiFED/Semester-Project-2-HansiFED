@@ -3,6 +3,20 @@ import { fetchListing } from "../../../src/js/listing/fetchListing.mjs";
 import { listingRemainingIsoCalculator } from "../../../src/Utilities/listingRemainingIsoCalculator.mjs";
 import { timeSinceBid } from "../../../src/Utilities/timeSinceBid.mjs";
 
+/**
+ * Fetches listing data and builds the listing detail page UI.
+ *
+ * - Populates listing image, title, description, current bid, seller info, and auction timer.
+ * - Shows or hides bid placement UI based on user authentication and seller status.
+ * - Dynamically creates and displays current bidders with their bids and time since bid.
+ * - Updates auction ending countdown every second.
+ * - Adds navigation links to bidder profiles and seller profile.
+ * - Removes loading animation from the main container after data is rendered.
+ *
+ * @async
+ * @function buildListing
+ * @returns {Promise<void>} Resolves when the listing page is fully rendered.
+ */
 export async function buildListing() {
   const main = document.querySelector("main");
   const initialData = await fetchListing();
@@ -24,9 +38,6 @@ export async function buildListing() {
   const userPfpDomElement = document.getElementById("userPfp");
   const userNameDomElement = document.getElementById("userName");
   const auctionEndingDomElement = document.getElementById("endsAt");
-  // const biddersWrapperDomElement = document.getElementById(
-  //   "currentBiddersWrapper",
-  // );
 
   if (!accessToken) {
     document.getElementById("placeBidContainer").classList.add("hidden");

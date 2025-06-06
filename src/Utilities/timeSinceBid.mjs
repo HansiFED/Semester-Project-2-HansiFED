@@ -1,3 +1,13 @@
+/**
+ * Calculates how much time has passed since a given ISO date.
+ *
+ * - Returns a human-readable string like "2h ago", "5d ago", or "Just now".
+ * - Automatically adjusts to the appropriate unit (seconds, minutes, hours, days).
+ *
+ * @function timeSinceBid
+ * @param {string} isoDate - An ISO-formatted date string representing the time of a bid.
+ * @returns {string} A relative time string indicating how long ago the bid was made.
+ */
 export function timeSinceBid(isoDate) {
   const targetTime = new Date(isoDate).getTime();
   const currentTime = Date.now();
